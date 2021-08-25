@@ -10,3 +10,6 @@
 
 # Docker_dobleM
 Script de canales auto actualizable para docker
+
+Instalación de tvheadend para docker
+[Tutorial Proximante](https://github.com/davidmuma/Docker_dobleM/blob/master/Varios/tvheadend.md)
