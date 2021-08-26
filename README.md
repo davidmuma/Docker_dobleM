@@ -23,7 +23,7 @@ https://downgit.github.io/#/home?url=https://github.com/davidmuma/Docker_dobleM/
 
 https://davidmuma.github.io/#/home?url=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini
 
-<a href="./files/dobleMconfig.ini" download>Download the pdf</a>
+<a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMdocker.sh" target="_blank">Download</a>
 
 
 
