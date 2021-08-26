@@ -25,3 +25,4 @@ Instalación:
 Tutorial de instalación en docker:
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/tvdocker.md">tvheadend</a>
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/osdocker.md">oscam</a>
+- <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/ostv.md">ejemplo oscam + tvheadend</a>
