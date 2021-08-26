@@ -8,7 +8,6 @@
   Grupo de telegram: <a href="https://tttttt.me/EPG_dobleM">dobleM</a>
 </h2>
 
-# Docker_dobleM
 Script especial para docker con lista de canales auto actualizable y solución al problema del borrado del grabber al actualizar la imagen del contenedor 
 
 Versión del script: 1.1
