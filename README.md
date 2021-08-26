@@ -18,6 +18,8 @@ Versión del script: 1.1
 
 <a id="raw-url" href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMconfig.ini">Download FILE</a>
 
+<a href="files/dobleMconfig.ini" download="dobleMconfig.ini">download this</a>
+
 [download this](files/dobleMconfig.ini)
 
 Instalación de tvheadend en docker:
