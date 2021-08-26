@@ -20,7 +20,7 @@ Versión del script: 1.1
 
 <a href="files/dobleMconfig.ini" download="dobleMconfig.ini">download this</a>
 
-<a href="https://davidmuma.github.io/Docker_dobleM/blob/main/files/dobleMconfig.ini">Des FILE</a>
+<a href="https://davidmuma.github.io/Docker_dobleM/files/dobleMconfig.ini">Des FILE</a>
 
 
 
