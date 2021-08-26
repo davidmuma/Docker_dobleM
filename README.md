@@ -11,10 +11,11 @@
 # Docker_dobleM
 Script especial para docker con lista de canales y EPG auto actualizable
 
+<a href="https://www.tdtchannels.com/lists/tv.m3u8" rel="nofollow">m3u8</a>
 Versión del script: 1.1
-- <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMconfig.ini" rel="nofollow"dobleMconfig.ini</a>
-- <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMdocker.sh" rel="nofollow"dobleMdocker.sh</a>
-- <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMcron.sh" rel="nofollow"dobleMcron.sh</a>
+- <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMconfig.ini" rel="nofollow">dobleMconfig.ini</a>
+- <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMdocker.sh" rel="nofollow">dobleMdocker.sh</a>
+- <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMcron.sh" rel="nofollow">dobleMcron.sh</a>
 
 Instalación de tvheadend en docker:
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/master/Varios/tvdocker.md">Synology</a>
