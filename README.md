@@ -21,5 +21,6 @@ Instalación:
 3. Copiar los tres ficheros al directorio /config/custom-cont-init.d del propio contenedor
 4. Reiniciar el contenedor
 
-Tutorial de instalación en docker: <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/tvdocker.md">tvheadend</a>
-                                   <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/osdocker.md">oscam</a>
+Tutorial de instalación en docker:
+- <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/tvdocker.md">tvheadend</a>
+- <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/osdocker.md">oscam</a>
