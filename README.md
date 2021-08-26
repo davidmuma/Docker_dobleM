@@ -17,11 +17,7 @@ Versión del script: 1.1
 - <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMcron.sh" rel="nofollow">dobleMcron.sh</a>
 
 
-<a id="raw-url" href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMconfig.ini">Download FILE</a>
-
-https://github.com/davidmuma/Docker_dobleM/archive/files/main.zip
-
-<a href="https://github.com/davidmuma/Docker_dobleM/archive/files/main.zip"><span>PRU</span></a>
+https://downgit.github.io/#/home?url=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini
 
 
 
