@@ -19,6 +19,8 @@ Versión del script: 1.1
 
 https://downgit.github.io/#/home?url=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini
 
+https://davidmuma.github.io/#/home?url=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini
+
 
 
 
