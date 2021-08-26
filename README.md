@@ -9,9 +9,7 @@
 </h2>
 
 # Docker_dobleM
-Script de canales auto actualizable para docker
+Script especial para docker con lista de canales y EPG auto actualizable
 
-Instalación de tvheadend para docker
-[Tutorial Proximante](https://github.com/davidmuma/Docker_dobleM/blob/master/Varios/tvdocker.md)
-
-- Ir al apartado <a href="https://github.com/davidmuma/Docker_dobleM/blob/master/Varios/tvdocker.md">"Configuración común de TVheadend"</a>
+Instalación de tvheadend en docker
+- <a href="https://github.com/davidmuma/Docker_dobleM/blob/master/Varios/tvdocker.md">"Tutorial"</a>
