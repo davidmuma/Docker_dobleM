@@ -20,7 +20,7 @@ Versión del script: 1.1
 
 <a href="files/dobleMconfig.ini" download="dobleMconfig.ini">download this</a>
 
-![download this](./files/dobleMconfig.ini)
+<a href="files/dobleMconfig.ini" download></a>
 
 Instalación de tvheadend en docker:
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/master/Varios/tvdocker.md">Synology</a>
