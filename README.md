@@ -19,6 +19,7 @@ Versión del script: 1.1
 
 <a id="raw-url" href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMconfig.ini">Download FILE</a>
 
+https://github.com/davidmuma/Docker_dobleM/archive/files/main.zip
 
 <a href="https://davidmuma.github.io/Docker_dobleM/files/dobleMconfig.ini"><span>PRU</span></a>
 
