@@ -18,4 +18,4 @@ Versión del script: 1.1
 
 
 Instalación de tvheadend en docker:
-- <a href="https://github.com/davidmuma/Docker_dobleM/blob/master/Varios/tvdocker.md">Synology</a>
+- <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/tvdocker.md">Synology</a>
