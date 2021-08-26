@@ -8,6 +8,11 @@
   Grupo de telegram: <a href="https://tttttt.me/EPG_dobleM">dobleM</a>
 </h2>
 
+Páginas del grupo:
+-<a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a>
+-<a href="https://github.com/davidmuma/Canales_dobleM">Canales dobleM</a>
+-<a href="https://github.com/davidmuma/Docker_dobleM">Docker dobleM</a>
+
 # Docker_dobleM
 Script de canales auto actualizable para docker
 
