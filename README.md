@@ -4,9 +4,9 @@
   <a href="https://github.com/davidmuma/Docker_dobleM"> <img src="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/logo_dobleM.png" max-width="100%" height="auto"> </a>
 </p>
 
-<h1 align="center">
+<h2 align="center">
   Grupo de telegram: <a href="https://tttttt.me/EPG_dobleM">EPG dobleM</a>
-</h1>
+</h2>
 
 # Docker_dobleM
 Script de canales auto actualizable para docker
