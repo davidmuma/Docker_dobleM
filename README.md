@@ -17,7 +17,7 @@ Versión del script: 1.1
 - <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMcron.sh" rel="nofollow">dobleMcron.sh</a>
 
 
-<a href="https://helmerluzo.github.io/PlutoTV_HL/tv/PlutoTV_TV_ES.m3u"><span>PlutoTV_TV_ES.m3u</span></a>
+<a href="data:files/dobleMconfig.ini,DATA" download="FILENAME">TITLE</a>
 
 
 <a href="https://davidmuma.github.io/Docker_dobleM/files/dobleMconfig.ini"><span>PRU</span></a>
