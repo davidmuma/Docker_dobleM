@@ -23,7 +23,7 @@ printf "\n Versión del script: $ver_script \n\n"
 ELIMINAR_LISTA()
 {
 if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
-    printf "\n No se puede eliminar algo que no está instalado ;-) \n\n"
+    printf "\n Saltando instalación de lista $NOMBRE_LISTA \n\n"
 else
 	# Iniciamos borrado
 		printf "%-$(($COLUMNS-10))s"  " Eliminando lista de canales $NOMBRE_LISTA"
