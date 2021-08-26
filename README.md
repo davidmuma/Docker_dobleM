@@ -10,7 +10,7 @@
 
 Script especial para docker con lista de canales auto actualizable y solución al problema del borrado del grabber al actualizar la imagen del contenedor 
 
-Versión del script: 1.1
+Versión del script: 1.1  (de momento solo funciona para instalar los canales satélite)
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini">dobleMconfig.ini</a>
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMdocker.sh">dobleMdocker.sh</a>
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMcron.sh">dobleMcron.sh</a>
