@@ -16,11 +16,12 @@ Versión del script: 1.1
 - <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMdocker.sh" rel="nofollow">dobleMdocker.sh</a>
 - <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMcron.sh" rel="nofollow">dobleMcron.sh</a>
 
-<a id="raw-url" href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMconfig.ini">Download FILE</a>
 
-<a href="files/dobleMconfig.ini" download="dobleMconfig.ini">download this</a>
+<a href="https://helmerluzo.github.io/PlutoTV_HL/tv/PlutoTV_TV_ES.m3u"><span>PlutoTV_TV_ES.m3u</span></a>
 
-<a href="https://davidmuma.github.io/Docker_dobleM/files/dobleMconfig.ini">Des FILE</a>
+
+<a href="https://davidmuma.github.io/Docker_dobleM/files/dobleMconfig.ini"><span>PRU</span></a>
+
 
 
 
