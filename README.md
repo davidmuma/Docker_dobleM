@@ -11,4 +11,10 @@
 # Docker_dobleM
 Script especial para docker con lista de canales y EPG auto actualizable
 
-- Instalación de tvheadend en docker: <a href="https://github.com/davidmuma/Docker_dobleM/blob/master/Varios/tvdocker.md">Synology</a>
+Versión del script: 1.1
+- <a href="https://github.com/davidmuma/Docker_dobleM/blob/master/files/tvdocker.md">dobleMconfig.ini</a>
+- <a href="https://github.com/davidmuma/Docker_dobleM/blob/master/files/tvdocker.md">Synology</a>
+- <a href="https://github.com/davidmuma/Docker_dobleM/blob/master/files/tvdocker.md">Synology</a>
+
+Instalación de tvheadend en docker:
+- <a href="https://github.com/davidmuma/Docker_dobleM/blob/master/Varios/tvdocker.md">Synology</a>
