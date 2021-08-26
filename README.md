@@ -25,7 +25,8 @@ https://davidmuma.github.io/#/home?url=https://github.com/davidmuma/Docker_doble
 
 https://github.com/davidmuma/Docker_dobleM/blob/master/files/dobleMconfig.ini?raw=true
 
-<a href="download.php?file=/files/dobleMconfig.ini<?=$row[dobleMconfig.ini]?>">Download</a>
+<a href="/files/dobleMconfig.ini?file=path<?=$row[dobleMconfig.ini]?>">Download</a>
+
 
 
 Instalación de tvheadend en docker:
