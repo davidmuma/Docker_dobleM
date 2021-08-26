@@ -1,4 +1,4 @@
-# <b>Configuración común de TVheadend </B>
+# <b>Instalación de TVheadend en Docker Synology </B>
 - Reiniciar TVheadend y activar el grabber:
 ```
 Configuración - Canal/EPG - Módulos para Obtención de Guía - Interno: XMLTV: tv_grab_EPG_dobleM
