@@ -22,4 +22,4 @@ Instalación:
 3. Copiar los tres ficheros al directorio /config/custom-cont-init.d del propio contenedor
 4. Reiniciar el contenedor
 
-Instalación de tvheadend en docker: <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/tvdocker.md">Synology</a>
+Tutorial de i nstalación de tvheadend en docker: <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/tvdocker.md">Synology</a>
