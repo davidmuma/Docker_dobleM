@@ -25,7 +25,7 @@ https://davidmuma.github.io/#/home?url=https://github.com/davidmuma/Docker_doble
 
 https://github.com/davidmuma/Docker_dobleM/blob/master/files/dobleMconfig.ini?raw=true
 
-<a href="/files/dobleMconfig.ini?file=path<?=$row[dobleMconfig.ini]?>">Download</a>
+<a href="https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini" download>dobleMconfig.ini</a>
 
 
 
