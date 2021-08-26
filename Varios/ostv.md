@@ -55,5 +55,7 @@ oscam.user
  max_connections = 4
  penalty = 0
 ```
+
 oscam en tvheadend
+
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/ostv1.jpg)
