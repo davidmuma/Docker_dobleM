@@ -56,6 +56,6 @@ oscam.user
  penalty = 0
 ```
 
-oscam en tvheadend
+CAS tvheadend
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/ostv1.jpg)
