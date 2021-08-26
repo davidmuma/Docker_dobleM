@@ -17,13 +17,13 @@ Damos doble clic y lo dejamos como en la captura
 Lo dejamos como en la captura
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/d5.jpg)
 
-Agregamos carpeta y lo dejamos como en la captura
+Agregamos carpetas y lo dejamos como en la captura
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/d6.jpg)
 
 Utilizamos la misma red que el host
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/d7.jpg)
 
-Pinchamos en el + y añadimos la variable TZ y le damos a aplicar
+Pinchamos en el + , añadimos la variable TZ y le damos a aplicar
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/d8.jpg)
 
 Siguiente
