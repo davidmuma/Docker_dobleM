@@ -16,7 +16,7 @@ Versión del script: 1.1
 - <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMdocker.sh" rel="nofollow">dobleMdocker.sh</a>
 - <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMcron.sh" rel="nofollow">dobleMcron.sh</a>
 
-<a href="https://github.com/davidmuma/Docker_dobleM/raw/main/files/dobleMconfig.ini">dobleMconfig.ini</a>
+https://kinolien.github.io/gitzip/?download=/KinoLien/gitziphttps://github.com/davidmuma/Docker_dobleM/raw/main/files/dobleMconfig.ini
 
 https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini
 https://downgit.github.io/#/home?url=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini
