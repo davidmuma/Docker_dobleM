@@ -11,7 +11,7 @@ Damos doble clic sobre la imagen y descargamos la última versión
 Esperamos a que se descargue y aparezca en nuestras imágenes descargadas
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/d3.jpg)
 
-Damos doble clic y lo dejamos como en la captura
+Damos doble clic, cambiamos el nombre del contendor y le damos a Configuración Avanzada
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/d4.jpg)
 
 Lo dejamos como en la captura
