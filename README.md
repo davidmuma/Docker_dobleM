@@ -12,7 +12,7 @@
 Script especial para docker con lista de canales y EPG auto actualizable
 
 Versión del script: 1.1
-- <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini" rel="nofollow">dobleMconfig.ini</a>
+- <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini">dobleMconfig.ini</a>
 - <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMdocker.sh" rel="nofollow">dobleMdocker.sh</a>
 - <a href="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMcron.sh" rel="nofollow">dobleMcron.sh</a>
 
