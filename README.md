@@ -22,7 +22,7 @@ Instalación:
 4. Reiniciar el contenedor
 ```
 ```
-Tutorial de instalación en docker:
+Tutorial contenedores docker en Synology:
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/tvdocker.md">tvheadend</a>
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/osdocker.md">oscam</a>
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/ostv.md">vincular oscam + tvheadend</a>
