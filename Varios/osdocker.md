@@ -2,7 +2,7 @@
 El primer paso es crear las carpetas que serán mapeadas
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/o0.jpg)
 
-Buscamos la imagen de tvheadend de linuxserver
+Buscamos la imagen de oscam de linuxserver
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/o1.jpg)
 
 Damos doble clic sobre la imagen y descargamos la última versión
