@@ -21,7 +21,7 @@ Versión del script: 1.1
 
 https://github.com/davidmuma/Docker_dobleM/archive/files/main.zip
 
-<a href="https://davidmuma.github.io/Docker_dobleM/files/dobleMconfig.ini"><span>PRU</span></a>
+<a href="https://github.com/davidmuma/Docker_dobleM/archive/files/main.zip"><span>PRU</span></a>
 
 
 
