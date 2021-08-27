@@ -16,10 +16,11 @@ Versión del script: 1.1  (de momento solo funciona para instalar los canales sa
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMcron.sh">dobleMcron.sh</a>
 
 Instalación:
-1. Descargar los tres ficheros
-2. Modificar el fichero dobleMconfig.ini con vuestra configuración y guardarlo
-3. Copiar los tres ficheros al directorio /config/custom-cont-init.d del propio contenedor
-4. Reiniciar el contenedor
+1. Descarga los tres ficheros
+2. Modifica el fichero dobleMconfig.ini con tu configuración y guardalo
+3. Copia los tres ficheros al directorio /config/custom-cont-init.d del propio contenedor
+4. Reinicia el contenedor
+5. Configura tus adaptadores en tvheadend y asigna la Red DVB-S
 ```
 ```
 Tutorial contenedores docker en Synology:
