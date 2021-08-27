@@ -11,7 +11,6 @@ maxlogsize                    = 200
 waitforcards                  = 0
 waitforcards_extra_delay      = 550
 preferlocalcards              = 1
-lb_mode                       = 10
 lb_nbest_readers              = 2
 lb_min_ecmcount               = 3
 lb_max_ecmcount               = 250
@@ -26,13 +25,15 @@ max_time                      = 8
 enabled                       = 1
 au                            = 1
 pmt_mode                      = 4
+request_mode                  = 1
 listen_port                   = 9999
+ecminfo_type                  = 4
 user                          = tvheadend
+read_sdt                      = 2
 boxtype                       = pc
 
 [webif]
 httpport                      = 8888
-serverip                      = 192.168.1.55
 httpuser                      = oscam
 httppwd                       = oscam
 httprefresh                   = 5
