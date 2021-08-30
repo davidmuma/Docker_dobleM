@@ -15,7 +15,7 @@ Versión del script: 1.2  (de momento solo funciona para instalar los canales sa
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMdocker.sh">dobleMdocker.sh</a>
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMcron.sh">dobleMcron.sh</a>
 
-Instalación: (Recomiendo hacer la instalación en un contenedor nuevo)
+Instalación: (La primera instalación es recomendable hacerla en un contenedor nuevo)
 1. Descarga los tres ficheros
 2. Modifica el fichero dobleMconfig.ini con tu configuración y guardalo
 3. Copia los tres ficheros al directorio /config/custom-cont-init.d del propio contenedor
