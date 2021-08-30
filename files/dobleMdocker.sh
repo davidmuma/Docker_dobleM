@@ -1,6 +1,6 @@
 #!/bin/bash
 # - script creado por dobleM
-ver_script="1.1"
+ver_script="1.2"
 
 SCRIPT=$(readlink -f $0)
 CARPETA_SCRIPT=`dirname $SCRIPT`
@@ -18,13 +18,10 @@ if [ -z "$COLUMNS" ]; then
 fi
 
 (
-printf "\n Versión del script: $ver_script \n\n"
+printf " Versión del script: $ver_script \n\n"
 
 ELIMINAR_LISTA()
 {
-if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
-    printf "\n Saltando instalación de lista $NOMBRE_LISTA \n\n"
-else
 	# Iniciamos borrado
 		printf "%-$(($COLUMNS-10))s"  " Eliminando lista de canales $NOMBRE_LISTA"
 		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
@@ -65,21 +62,11 @@ else
 		printf " Reiniciando tvheadend para aplicar los cambios \n\n"
 			pkill -SIGKILL tvheadend
 	# Fin borrado de canales
-fi
 }
 
-NOMBRE_LISTA=dobleM-SAT
-NOMBRE_INPUT="input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8"
-ver_local=`cat $TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver 2>/dev/null`
-ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>/dev/null`
-if [ $LISTA_SAT -eq 0 ]; then
-	ELIMINAR_LISTA
-else
-	if [ $ver_local = $ver_web ]; then
-		printf "\n Versión  $NOMBRE_LISTA  instalada: $ver_local"
-		printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
-		printf "\n No es necesario actualizar la lista \n\n"
-	else
+INSTALAR_SAT()
+{
+	# Comprobamos que los valores del ini sean correctos
 	case $LISTA_SAT in
 		1) LIMPIAR_CANALES_SAT='ac6da31b4882740649cd13bc94f96b1c\|8e06542863d3606f8a583e43c73580c2\|fa0254ffc9bdcc235a7ce86ec62b04b1'; break;; #No borramos nada
 		2) LIMPIAR_CANALES_SAT='ac6da31b4882740649cd13bc94f96b1c\|fa0254ffc9bdcc235a7ce86ec62b04b1'; break;; #borramos todo menos Astra individual y Astra SD
@@ -255,7 +242,7 @@ else
 						done
 			# Borramos resto de la instalación anterior
 			ERROR=false
-			rm -rf $TVHEADEND_CONFIG_DIR/input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8/
+			rm -rf $TVHEADEND_CONFIG_DIR/$NOMBRE_INPUT
 			if [ $? -ne 0 ]; then
 				ERROR=true
 			fi
@@ -324,7 +311,41 @@ else
 		printf " Reiniciando tvheadend para aplicar los cambios \n\n"
 			pkill -SIGKILL tvheadend
 	# Fin instalación
+}
+
+if [ $LISTA_SAT -eq 0 ]; then
+	NOMBRE_LISTA=dobleM-SAT
+	NOMBRE_INPUT="input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8"	
+	if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
+		printf "\n Saltando instalación de lista $NOMBRE_LISTA \n\n"
+	else
+		ELIMINAR_LISTA
+	fi
+else
+	NOMBRE_LISTA=dobleM-SAT
+	NOMBRE_INPUT="input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8"
+	fecha_fichero_ini=`stat -c %Y $CARPETA_SCRIPT/dobleMconfig.ini`
+	fecha_fichero_ver=`stat -c %Y $TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver`
+	ver_local=`cat $TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver 2>/dev/null`
+	ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>/dev/null`
+	if [ $fecha_fichero_ini -gt $fecha_fichero_ver ]; then
+		INSTALAR_SAT
+	else
+		if [ $ver_local = $ver_web ]; then
+			printf "\n Versión  $NOMBRE_LISTA  instalada: $ver_local"
+			printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
+			printf "\n No es necesario actualizar la lista \n\n"
+		else
+		INSTALAR_SAT
+		fi
 	fi
 fi
+
+
+
+
+ 
+
+
 
 ) | tee "$CARPETA_SCRIPT/dobleMscript.log"
