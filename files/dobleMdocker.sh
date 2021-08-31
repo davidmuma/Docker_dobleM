@@ -1,6 +1,6 @@
 #!/bin/bash
 # - script creado por dobleM
-ver_script="1.2"
+ver_script="1.5"
 
 SCRIPT=$(readlink -f $0)
 CARPETA_SCRIPT=`dirname $SCRIPT`
@@ -498,6 +498,7 @@ if [ $LISTA_SAT -eq 0 ]; then
 	if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
 		printf "\n Saltando instalación de lista $NOMBRE_LISTA \n"
 	else
+		REINICIO=1
 		ELIMINAR_LISTA
 	fi
 else
@@ -508,6 +509,7 @@ else
 	ver_local=`cat $TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver 2>/dev/null`
 	ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>/dev/null`
 	if [ $fecha_fichero_ini -gt $fecha_fichero_ver ]; then
+		REINICIO=1
 		INSTALAR_SAT
 	else
 		if [ $ver_local = $ver_web ]; then
@@ -515,6 +517,7 @@ else
 			printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
 			printf "\n No es necesario actualizar la lista \n"
 		else
+		REINICIO=1
 		INSTALAR_SAT
 		fi
 	fi
@@ -526,6 +529,7 @@ if [ $LISTA_TDT -eq 0 ]; then
 	if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
 		printf "\n Saltando instalación de lista $NOMBRE_LISTA \n"
 	else
+		REINICIO=1
 		ELIMINAR_LISTA
 	fi
 else
@@ -537,6 +541,7 @@ else
 	ver_local=`cat $TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver 2>/dev/null`
 	ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>/dev/null`
 	if [ $fecha_fichero_ini -gt $fecha_fichero_ver ]; then
+		REINICIO=1
 		INSTALAR_IPTV
 	else
 		if [ $ver_local = $ver_web ]; then
@@ -544,6 +549,7 @@ else
 			printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
 			printf "\n No es necesario actualizar la lista \n"
 		else
+		REINICIO=1
 		INSTALAR_IPTV
 		fi
 	fi
@@ -555,6 +561,7 @@ if [ $LISTA_PLUTO -eq 0 ]; then
 	if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
 		printf "\n Saltando instalación de lista $NOMBRE_LISTA \n"
 	else
+		REINICIO=1
 		ELIMINAR_LISTA
 	fi
 else
@@ -566,6 +573,7 @@ else
 	ver_local=`cat $TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver 2>/dev/null`
 	ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>/dev/null`
 	if [ $fecha_fichero_ini -gt $fecha_fichero_ver ]; then
+		REINICIO=1
 		INSTALAR_IPTV
 	else
 		if [ $ver_local = $ver_web ]; then
@@ -573,6 +581,7 @@ else
 			printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
 			printf "\n No es necesario actualizar la lista \n"
 		else
+		REINICIO=1
 		INSTALAR_IPTV
 		fi
 	fi
@@ -584,6 +593,7 @@ if [ $LISTA_PLUTOVOD -eq 0 ]; then
 	if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
 		printf "\n Saltando instalación de lista $NOMBRE_LISTA \n"
 	else
+		REINICIO=1
 		ELIMINAR_LISTA
 	fi
 else
@@ -595,6 +605,7 @@ else
 	ver_local=`cat $TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver 2>/dev/null`
 	ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>/dev/null`
 	if [ $fecha_fichero_ini -gt $fecha_fichero_ver ]; then
+		REINICIO=1
 		INSTALAR_IPTV
 	else
 		if [ $ver_local = $ver_web ]; then
@@ -602,13 +613,18 @@ else
 			printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
 			printf "\n No es necesario actualizar la lista \n"
 		else
+		REINICIO=1
 		INSTALAR_IPTV
 		fi
 	fi
 fi
 
-# Reiniciamos tvheadend
+if [ $REINICIO -eq 1 ]; then
 	printf "\n Reiniciando tvheadend para aplicar los cambios \n"
 		pkill -SIGKILL tvheadend
+else
+	printf "\n No hay cambios \n"
+fi
+
 
 ) | tee "$CARPETA_SCRIPT/dobleMscript.log"
