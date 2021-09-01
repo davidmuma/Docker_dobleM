@@ -9,9 +9,9 @@
 </h2>
 
 Script especial para docker, funciones especiales respecto al anterior script:
-Todo se hace desde el propio contenedor, por lo que funciona independientemente del sistema anfitrión que se use
-Ahora las listas de canales se actualizan solas cada vez que detectan que hay una versión nueva
-Solución al problema del borrado del grabber cuando se actualiza la imagen del contenedor 
+* Todo se hace desde el propio contenedor, por lo que funciona independientemente del sistema anfitrión que se use
+* Ahora las listas de canales se actualizan solas cada vez que detectan que hay una versión nueva
+* Solución al problema del borrado del grabber cuando se actualiza la imagen del contenedor 
 
 Versión del script: 1.6 (01/09/21)
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini">dobleMconfig.ini</a>
@@ -24,8 +24,6 @@ Instalación: (La primera instalación es recomendable hacerla en un contenedor 
 3. Copia los tres ficheros al directorio /config/custom-cont-init.d del propio contenedor
 4. Reinicia el contenedor
 5. Configura tus adaptadores en tvheadend y asigna la Red DVB-S (este paso solo hay que hacerlo la primera vez)
-```
-```
 ***
 Tutorial contenedores docker en Synology:
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/tvdocker.md">tvheadend</a>
