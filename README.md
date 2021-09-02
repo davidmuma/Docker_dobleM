@@ -20,13 +20,16 @@ Versión del script: 1.6 (01/09/21)
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini">dobleMconfig.ini</a>
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMdocker.sh">dobleMdocker.sh</a>
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMcron.sh">dobleMcron.sh</a>
-
-Instalación: (La primera instalación es recomendable hacerla en un contenedor nuevo)
+***
+Pasos previos antes de realizar la primera instalacíon y que solo hay que realizar la primera vez:
+Para que se configuré correctamente el grabber en tvheadend debes de ir a la pestaña Configuración -> Canal/EPG -> Módulos para la obtención de guía, desactivar todos los EIT grabber y darle al botón Guardar, con ésto generamos el fichero config para que luego el script pueda modificarlo
+***
+Instalación:
 1. Descarga los tres ficheros
 2. Modifica el fichero dobleMconfig.ini con tu configuración y guardalo
 3. Copia los tres ficheros al directorio /config/custom-cont-init.d del propio contenedor
 4. Reinicia el contenedor
-5. Configura tus adaptadores en tvheadend y asigna la Red DVB-S (este paso solo hay que hacerlo la primera vez)
+5. Configura tus adaptadores en tvheadend y asigna la Red DVB-S (este paso solo hay que realizarlo una vez)
 ***
 Tutorial contenedores docker en Synology:
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/tvdocker.md">tvheadend</a>
