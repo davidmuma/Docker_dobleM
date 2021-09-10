@@ -24,6 +24,7 @@ Utilizamos la misma red que el host
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/d7.jpg)
 
 Pinchamos en el + , añadimos la variable TZ y le damos a aplicar
+(Opcional: para que no nos marque errores de permisos el log de tvheadend, también hay que añadir el PGID 101 y el PUID, éste último se obtiene entrando por terminal a nuestro synology y poniendo el comando id)
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/d8.jpg)
 
 Siguiente
