@@ -70,8 +70,6 @@ INSTALAR_GRABBER()
 		2) FORMATO_IMAGEN_GRABBER='sed -i 's/enable_fanart=.*/enable_fanart=true/g''; break;;
 		*) printf "\n $FORMATO_IMG no es una opción válida para FORMATO_IMG\n"; exit;;
 	esac
-	# Iniciamos instalación
-		printf "\n Instalando grabber para $NOMBRE_LISTA $ver_web \n"
 	# Preparamos CARPETA_DOBLEM y descargamos el grabber para satelite
 		printf "%-$(($COLUMNS-10))s"  " 1. Descargando grabber"
 			ERROR=false
@@ -834,25 +832,28 @@ else
 		REINICIO=1
 		INSTALAR_SAT
 	else
-		if [ ! -f "$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA" ]; then
+		if [ $fecha_fichero_ini -gt $fecha_fichero_ver ]; then
 			REINICIO=1
-			INSTALAR_GRABBER
+			ACTUALIZAR_SAT
 		else
-			if [ $fecha_fichero_ini -gt $fecha_fichero_ver ]; then
-				REINICIO=1
-				ACTUALIZAR_SAT
-			else
-				if [ $ver_local = $ver_web ]; then
+			if [ $ver_local = $ver_web ]; then
+				if [ ! -f "$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA" ]; then
+					printf "\n El grabber para $NOMBRE_LISTA se ha borrado o no existe"
+					printf "\n Procedo a descargarlo e instalarlo de nuevo \n"
+					REINICIO=1
+					INSTALAR_GRABBER
+				else
 					printf "\n Versión  $NOMBRE_LISTA  instalada: $ver_local"
 					printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
 					printf "\n No es necesario actualizar la lista \n"
-				else
+				fi	
+			else
 				REINICIO=1
 				ACTUALIZAR_SAT
-				fi
 			fi
 		fi
 	fi
+	
 fi
 
 if [ $LISTA_TDT -eq 0 ]; then
