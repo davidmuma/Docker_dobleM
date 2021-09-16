@@ -1,6 +1,6 @@
 #!/bin/bash
 # - script creado por dobleM
-ver_script="1.6"
+ver_script="1.7"
 
 SCRIPT=$(readlink -f $0)
 CARPETA_SCRIPT=`dirname $SCRIPT`
@@ -60,6 +60,75 @@ ELIMINAR_LISTA()
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
 	# Fin borrado de canales
+}
+
+INSTALAR_GRABBER()
+{
+	# Comprobamos que los valores del ini son correctos
+	case $FORMATO_IMG in
+		1) FORMATO_IMAGEN_GRABBER='sed -i 's/enable_fanart=.*/enable_fanart=false/g''; break;;
+		2) FORMATO_IMAGEN_GRABBER='sed -i 's/enable_fanart=.*/enable_fanart=true/g''; break;;
+		*) printf "\n $FORMATO_IMG no es una opción válida para FORMATO_IMG\n"; exit;;
+	esac
+	# Iniciamos instalación
+		printf "\n Instalando grabber para $NOMBRE_LISTA $ver_web \n"
+	# Preparamos CARPETA_DOBLEM y descargamos el grabber para satelite
+		printf "%-$(($COLUMNS-10))s"  " 1. Descargando grabber"
+			ERROR=false
+			rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && cd $CARPETA_DOBLEM
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA
+			if [ $? -eq 0 -a $ERROR = "false" ]; then
+				printf "%s%s%s\n" "[" "  OK  " "]"
+			else
+				printf "%s%s%s\n" "[" "FAILED" "]"
+			fi
+	# Configuramos tvheadend y grabber para satelite
+		printf "%-$(($COLUMNS-10))s"  " 2. Configurando grabber"
+			ERROR=false
+			#cron y grabber config epggrab
+			sed -i -e 's/"channel_rename": .*,/"channel_rename": false,/g' -e 's/"channel_renumber": .*,/"channel_renumber": false,/g' -e 's/"channel_reicon": .*,/"channel_reicon": false,/g' -e 's/"epgdb_periodicsave": .*,/"epgdb_periodicsave": 0,/g' -e 's/"epgdb_saveafterimport": .*,/"epgdb_saveafterimport": true,/g' -e 's/"cron": .*,/"cron": "\# Todos los días a las 8:04, 14:04 y 20:04\\n4 8 * * *\\n4 14 * * *\\n4 20 * * *",/g' -e 's/"int_initial": .*,/"int_initial": true,/g' -e 's/"ota_initial": .*,/"ota_initial": false,/g' -e 's/"ota_cron": .*,/"ota_cron": "\# Configuración modificada por dobleM\\n\# Telegram: t.me\/EPG_dobleM",/g' -e 's/"ota_timeout": .*,/"ota_timeout": 600,/g' $TVHEADEND_CONFIG_DIR/epggrab/config
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			sed -i "/tv_grab_EPG_$NOMBRE_LISTA\"/,/},/d" $TVHEADEND_CONFIG_DIR/epggrab/config
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			sed -i "s#\"modules\": {#\"modules\": {\n\t\t\"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\": {\n\t\t\t\"class\": \"epggrab_mod_int_xmltv\",\n\t\t\t\"dn_chnum\": 0,\n\t\t\t\"name\": \"XMLTV: EPG_$NOMBRE_LISTA\",\n\t\t\t\"type\": \"Internal\",\n\t\t\t\"enabled\": true,\n\t\t\t\"priority\": 5\n\t\t},#g" $TVHEADEND_CONFIG_DIR/epggrab/config
+			if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s%s%s\n" "[" "  OK  " "]"
+			else
+			printf "%s%s%s\n" "[" "FAILED" "]"
+			fi
+	# Copiamos archivos para grabber
+		printf "%-$(($COLUMNS-10))s"  " 3. Instalando grabber"
+			ERROR=false
+			cp -r $CARPETA_DOBLEM/tv_grab_EPG_$NOMBRE_LISTA $TVHEADEND_GRABBER_DIR/
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			$FORMATO_IMAGEN_GRABBER $TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			chmod +rx $TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA
+			if [ $? -eq 0 -a $ERROR = "false" ]; then
+				printf "%s%s%s\n" "[" "  OK  " "]"
+			else
+				printf "%s%s%s\n" "[" "FAILED" "]"
+			fi
+	# Borramos carpeta termporal dobleM
+		printf "%-$(($COLUMNS-10))s"  " 4. Eliminando archivos temporales"
+			rm -rf $CARPETA_DOBLEM
+			if [ $? -eq 0 ]; then
+				printf "%s%s%s\n" "[" "  OK  " "]"
+			else
+				printf "%s%s%s\n" "[" "FAILED" "]"
+			fi
+	# Fin instalación
 }
 
 INSTALAR_SAT()
@@ -467,7 +536,7 @@ ACTUALIZAR_SAT()
 			do
 				channelchange=$(sed -n '2p' $TVHEADEND_CONFIG_DIR/channel/config/$channelenabled)
 				sed -i "s/.*\"enabled\":.*/$channelchange/" $CARPETA_DOBLEM/channel/config/$channelenabled 2>/dev/null
-			done		
+			done
 			# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
 					# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
 						for fichero in $TVHEADEND_CONFIG_DIR/channel/config/* $TVHEADEND_CONFIG_DIR/channel/tag/*
@@ -564,7 +633,7 @@ INSTALAR_IPTV()
 {
 	# Comprobamos que los valores del ini son correctos
 	case $LISTA_IPTV in
-		1) LIMPIAR_FFMPEG=''epglimit.*0''; break;; #borramos todo menos los no ffmpeg		
+		1) LIMPIAR_FFMPEG=''epglimit.*0''; break;; #borramos todo menos los no ffmpeg
 		2) LIMPIAR_FFMPEG=''epglimit.*7''; break;; #borramos todo menos los si ffmpeg
 		*) printf "\n $LISTA_IPTV no es una opción válida para LISTA_IPTV\n"; exit;;
 	esac
@@ -597,7 +666,7 @@ INSTALAR_IPTV()
 			tar -xf "$NOMBRE_LISTA.tar.xz"
 			if [ $? -ne 0 ]; then
 				ERROR=true
-			fi		
+			fi
 			grep -L $LIMPIAR_FFMPEG $CARPETA_DOBLEM/channel/config/* | xargs -I{} rm {}
 			if [ $? -ne 0 ]; then
 				ERROR=true
@@ -747,7 +816,7 @@ INSTALAR_IPTV()
 
 if [ $LISTA_SAT -eq 0 ]; then
 	NOMBRE_LISTA=dobleM-SAT
-	NOMBRE_INPUT="input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8"	
+	NOMBRE_INPUT="input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8"
 	if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
 		printf "\n Saltando instalación de lista $NOMBRE_LISTA \n"
 	else
@@ -765,26 +834,30 @@ else
 		REINICIO=1
 		INSTALAR_SAT
 	else
-		if [ $fecha_fichero_ini -gt $fecha_fichero_ver ]; then
+		if [ ! -f "$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA" ]; then
 			REINICIO=1
-			ACTUALIZAR_SAT
+			INSTALAR_GRABBER
 		else
-			if [ $ver_local = $ver_web ]; then
-				printf "\n Versión  $NOMBRE_LISTA  instalada: $ver_local"
-				printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
-				printf "\n No es necesario actualizar la lista \n"
+			if [ $fecha_fichero_ini -gt $fecha_fichero_ver ]; then
+				REINICIO=1
+				ACTUALIZAR_SAT
 			else
-			REINICIO=1
-			ACTUALIZAR_SAT
+				if [ $ver_local = $ver_web ]; then
+					printf "\n Versión  $NOMBRE_LISTA  instalada: $ver_local"
+					printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
+					printf "\n No es necesario actualizar la lista \n"
+				else
+				REINICIO=1
+				ACTUALIZAR_SAT
+				fi
 			fi
 		fi
-	fi	
-		
+	fi
 fi
-	
+
 if [ $LISTA_TDT -eq 0 ]; then
 	NOMBRE_LISTA=dobleM-TDT
-	NOMBRE_INPUT="input/iptv/networks/c80013f7cb7dc75ed04b0312fa362ae1"	
+	NOMBRE_INPUT="input/iptv/networks/c80013f7cb7dc75ed04b0312fa362ae1"
 	if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
 		printf "\n Saltando instalación de lista $NOMBRE_LISTA \n"
 	else
@@ -816,7 +889,7 @@ fi
 
 if [ $LISTA_PLUTO -eq 0 ]; then
 	NOMBRE_LISTA=dobleM-PlutoTV_ALL
-	NOMBRE_INPUT="input/iptv/networks/d80013f7cb7dc75ed04b0312fa362ae1"	
+	NOMBRE_INPUT="input/iptv/networks/d80013f7cb7dc75ed04b0312fa362ae1"
 	if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
 		printf "\n Saltando instalación de lista $NOMBRE_LISTA \n"
 	else
@@ -848,7 +921,7 @@ fi
 
 if [ $LISTA_PLUTOVOD -eq 0 ]; then
 	NOMBRE_LISTA=dobleM-PlutoVOD_ES
-	NOMBRE_INPUT="input/iptv/networks/f801b3c9e6be4260665d32be03908e00"	
+	NOMBRE_INPUT="input/iptv/networks/f801b3c9e6be4260665d32be03908e00"
 	if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
 		printf "\n Saltando instalación de lista $NOMBRE_LISTA \n"
 	else
