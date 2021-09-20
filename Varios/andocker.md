@@ -12,7 +12,7 @@ Esperamos a que se descargue y aparezca en nuestras imágenes descargadas
 Damos doble clic, cambiamos el nombre del contendor y le damos a Configuración Avanzada
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a5.jpg)
 
-Lo dejamos como en la captura
+Lo dejamos como en la captura (modifica la ip por la tuya)
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a6.jpg)
 
 Utilizamos la misma red que el host
@@ -24,8 +24,8 @@ Pinchamos en el + , añadimos la variable TVHEADEND_URL con nuestro usuario, con
 Siguiente
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a9.jpg)
 
-Y Aplicar. Ya tenemos nuestro contendedor de oscam corriendo
+Y Aplicar. Ya tenemos nuestro contendedor de antennas corriendo
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a10.jpg)
 
-Ahora iremos a tvheadend y crearemos el usuario *
+Ahora iremos a tvheadend y crearemos el usuario "*" (modifica la ip por la tuya)
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a11.jpg)
