@@ -1,4 +1,4 @@
-# <b>Instalación de Antennas en Docker Synology </B>
+# <b>Instalación de antennas en Docker Synology </B>
 
 Buscamos la imagen de Antennas de thejf
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a1.jpg)
@@ -30,4 +30,5 @@ Siguiente
 Y Aplicar. Ya tenemos nuestro contendedor de oscam corriendo
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a10.jpg)
 
-Paso indispensable
+Ahora iremos a tvheadend y crearemos el usuario *
+![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a11.jpg)
