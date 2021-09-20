@@ -14,7 +14,7 @@ Esperamos a que se descargue y aparezca en nuestras imágenes descargadas
 Damos doble clic, cambiamos el nombre del contendor y le damos a Configuración Avanzada
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/o4.jpg)
 
-Lo dejamos como en la captura
+Lo dejamos como en la captura (modifica la ip por la tuya)
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/o5.jpg)
 
 Agregamos carpetas y lo dejamos como en la captura
