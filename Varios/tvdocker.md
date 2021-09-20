@@ -14,7 +14,7 @@ Esperamos a que se descargue y aparezca en nuestras imágenes descargadas
 Damos doble clic, cambiamos el nombre del contendor y le damos a Configuración Avanzada
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/d4.jpg)
 
-Lo dejamos como en la captura
+Lo dejamos como en la captura (modifica la ip por la tuya)
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/d5.jpg)
 
 Agregamos carpetas y lo dejamos como en la captura
@@ -24,7 +24,7 @@ Utilizamos la misma red que el host
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/d7.jpg)
 
 Pinchamos en el + , añadimos la variable TZ Europe/Madrid y le damos a aplicar
-(Opcional: para que no nos marque errores de permisos el log de tvheadend, también hay que añadir el PGID 101 y el PUID, éste último se obtiene entrando por terminal a nuestro synology y poniendo el comando id)
+(Opcional: para que no nos marque errores de permisos el log de tvheadend, también hay que añadir el PGID 100 y el PUID, éste último se obtiene entrando por terminal a nuestro synology y poniendo el comando id) (también puedes usar PGID 0 y PUID 0 para que el contenedor tenga permisos root)
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/d8.jpg)
 
 Siguiente
