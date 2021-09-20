@@ -1,21 +1,18 @@
 # <b>Instalación de antennas en Docker Synology </B>
 
-Buscamos la imagen de Antennas de thejf
-![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a1.jpg)
-
-Damos doble clic sobre la imagen y descargamos la última versión
+Buscamos la imagen de antennas de thejf
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a2.jpg)
 
-Esperamos a que se descargue y aparezca en nuestras imágenes descargadas
+Damos doble clic sobre la imagen y descargamos la última versión
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a3.jpg)
 
-Damos doble clic, cambiamos el nombre del contendor y le damos a Configuración Avanzada
+Esperamos a que se descargue y aparezca en nuestras imágenes descargadas
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a4.jpg)
 
-Lo dejamos como en la captura
+Damos doble clic, cambiamos el nombre del contendor y le damos a Configuración Avanzada
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a5.jpg)
 
-Agregamos carpetas y lo dejamos como en la captura
+Lo dejamos como en la captura
 ![alt text](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/a6.jpg)
 
 Utilizamos la misma red que el host
