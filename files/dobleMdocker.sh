@@ -229,7 +229,7 @@ INSTALAR_SAT()
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
-	# Comprobamos que existe el fichero /epggrab/config		
+	# Comprobamos que existe el fichero /epggrab/config
 		printf "%-$(($COLUMNS-10))s"  " 4. Comprobando que existe el fichero /epggrab/config"
 			if [ ! -f "$TVHEADEND_CONFIG_DIR/epggrab/config" ]; then
 				ERROR=false
@@ -254,7 +254,7 @@ INSTALAR_SAT()
 				else
 					printf "%s%s%s\n" "[" "FAILED" "]"
 				fi
-			fi			
+			fi
 	# Configuramos tvheadend y grabber para satelite
 		printf "%-$(($COLUMNS-10))s"  " 5. Configurando tvheadend"
 			ERROR=false
@@ -262,7 +262,7 @@ INSTALAR_SAT()
 			sed -i 's#"uilevel":.*#"uilevel": 2,#' $TVHEADEND_CONFIG_DIR/config
 			if [ $? -ne 0 ]; then
 				ERROR=true
-			fi			
+			fi
 			#Idiomas EPG config tvheadend
 			sed -i 's#"language":.*#"language": [\n\t idiomas_inicio#' $TVHEADEND_CONFIG_DIR/config
 			if [ $? -ne 0 ]; then
@@ -280,7 +280,7 @@ INSTALAR_SAT()
 			if [ $? -ne 0 ]; then
 				ERROR=true
 			fi
-			#picons config tvheadend				
+			#picons config tvheadend
 			sed -i 's#"prefer_picon":.*#"prefer_picon": true,\n\t picons_inicio#' $TVHEADEND_CONFIG_DIR/config
 			if [ $? -ne 0 ]; then
 				ERROR=true
@@ -512,7 +512,7 @@ ACTUALIZAR_SAT()
 			sed -i 's#"uilevel":.*#"uilevel": 2,#' $TVHEADEND_CONFIG_DIR/config
 			if [ $? -ne 0 ]; then
 				ERROR=true
-			fi			
+			fi
 			#Idiomas EPG config tvheadend
 			sed -i 's#"language":.*#"language": [\n\t idiomas_inicio#' $TVHEADEND_CONFIG_DIR/config
 			if [ $? -ne 0 ]; then
@@ -530,7 +530,7 @@ ACTUALIZAR_SAT()
 			if [ $? -ne 0 ]; then
 				ERROR=true
 			fi
-			#picons config tvheadend				
+			#picons config tvheadend
 			sed -i 's#"prefer_picon":.*#"prefer_picon": true,\n\t picons_inicio#' $TVHEADEND_CONFIG_DIR/config
 			if [ $? -ne 0 ]; then
 				ERROR=true
@@ -738,7 +738,7 @@ INSTALAR_IPTV()
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
-	# Comprobamos que existe el fichero /epggrab/config		
+	# Comprobamos que existe el fichero /epggrab/config
 		printf "%-$(($COLUMNS-10))s"  " 4. Comprobando que existe el fichero /epggrab/config"
 			if [ ! -f "$TVHEADEND_CONFIG_DIR/epggrab/config" ]; then
 				ERROR=false
@@ -764,9 +764,14 @@ INSTALAR_IPTV()
 					printf "%s%s%s\n" "[" "FAILED" "]"
 				fi
 			fi
-	# Configuramos grabber para IPTV
+	# Configuramos tvheadend y grabber para IPTV
 		printf "%-$(($COLUMNS-10))s"  " 5. Configurando grabber en tvheadend"
 			ERROR=false
+			#Modo experto
+			sed -i 's#"uilevel":.*#"uilevel": 2,#' $TVHEADEND_CONFIG_DIR/config
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi			
 			#cron y grabber config epggrab
 			sed -i -e 's/"channel_rename": .*,/"channel_rename": false,/g' -e 's/"channel_renumber": .*,/"channel_renumber": false,/g' -e 's/"channel_reicon": .*,/"channel_reicon": false,/g' -e 's/"epgdb_periodicsave": .*,/"epgdb_periodicsave": 0,/g' -e 's/"epgdb_saveafterimport": .*,/"epgdb_saveafterimport": true,/g' -e 's/"cron": .*,/"cron": "\# Todos los días a las 8:04, 14:04 y 20:04\\n4 8 * * *\\n4 14 * * *\\n4 20 * * *",/g' -e 's/"int_initial": .*,/"int_initial": true,/g' -e 's/"ota_initial": .*,/"ota_initial": false,/g' -e 's/"ota_cron": .*,/"ota_cron": "\# Configuración modificada por dobleM\\n\# Telegram: t.me\/EPG_dobleM",/g' -e 's/"ota_timeout": .*,/"ota_timeout": 600,/g' $TVHEADEND_CONFIG_DIR/epggrab/config
 			if [ $? -ne 0 ]; then
@@ -902,14 +907,14 @@ else
 					printf "\n Versión  $NOMBRE_LISTA  instalada: $ver_local"
 					printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
 					printf "\n No es necesario actualizar la lista \n"
-				fi	
+				fi
 			else
 				REINICIO=1
 				ACTUALIZAR_SAT
 			fi
 		fi
 	fi
-	
+
 fi
 
 if [ $LISTA_TDT -eq 0 ]; then
