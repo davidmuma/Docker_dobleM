@@ -1,6 +1,6 @@
 #!/bin/bash
 # - script creado por dobleM
-ver_script="1.8"
+ver_script="1.9"
 
 SCRIPT=$(readlink -f $0)
 CARPETA_SCRIPT=`dirname $SCRIPT`
@@ -62,7 +62,7 @@ ELIMINAR_LISTA()
 	# Fin borrado de canales
 }
 
-INSTALAR_GRABBER()
+INSTALAR_GRABBER_SAT()
 {
 	# Comprobamos que los valores del ini son correctos
 	case $FORMATO_IMG in
@@ -109,6 +109,63 @@ INSTALAR_GRABBER()
 				ERROR=true
 			fi
 			$FORMATO_IMAGEN_GRABBER $TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			chmod +rx $TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA
+			if [ $? -eq 0 -a $ERROR = "false" ]; then
+				printf "%s%s%s\n" "[" "  OK  " "]"
+			else
+				printf "%s%s%s\n" "[" "FAILED" "]"
+			fi
+	# Borramos carpeta termporal dobleM
+		printf "%-$(($COLUMNS-10))s"  " 4. Eliminando archivos temporales"
+			rm -rf $CARPETA_DOBLEM
+			if [ $? -eq 0 ]; then
+				printf "%s%s%s\n" "[" "  OK  " "]"
+			else
+				printf "%s%s%s\n" "[" "FAILED" "]"
+			fi
+	# Fin instalación
+}
+
+INSTALAR_GRABBER_IPTV()
+{
+	# Preparamos CARPETA_DOBLEM y descargamos el grabber para IPTV
+		printf "%-$(($COLUMNS-10))s"  " 1. Descargando grabber"
+			ERROR=false
+			rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && cd $CARPETA_DOBLEM
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA
+			if [ $? -eq 0 -a $ERROR = "false" ]; then
+				printf "%s%s%s\n" "[" "  OK  " "]"
+			else
+				printf "%s%s%s\n" "[" "FAILED" "]"
+			fi
+	# Configuramos tvheadend y grabber para IPTV
+		printf "%-$(($COLUMNS-10))s"  " 2. Configurando grabber"
+			ERROR=false
+			#cron y grabber config epggrab
+			sed -i -e 's/"channel_rename": .*,/"channel_rename": false,/g' -e 's/"channel_renumber": .*,/"channel_renumber": false,/g' -e 's/"channel_reicon": .*,/"channel_reicon": false,/g' -e 's/"epgdb_periodicsave": .*,/"epgdb_periodicsave": 0,/g' -e 's/"epgdb_saveafterimport": .*,/"epgdb_saveafterimport": true,/g' -e 's/"cron": .*,/"cron": "\# Todos los días a las 8:04, 14:04 y 20:04\\n4 8 * * *\\n4 14 * * *\\n4 20 * * *",/g' -e 's/"int_initial": .*,/"int_initial": true,/g' -e 's/"ota_initial": .*,/"ota_initial": false,/g' -e 's/"ota_cron": .*,/"ota_cron": "\# Configuración modificada por dobleM\\n\# Telegram: t.me\/EPG_dobleM",/g' -e 's/"ota_timeout": .*,/"ota_timeout": 600,/g' $TVHEADEND_CONFIG_DIR/epggrab/config
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			sed -i "/tv_grab_EPG_$NOMBRE_LISTA\"/,/},/d" $TVHEADEND_CONFIG_DIR/epggrab/config
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			sed -i "s#\"modules\": {#\"modules\": {\n\t\t\"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\": {\n\t\t\t\"class\": \"epggrab_mod_int_xmltv\",\n\t\t\t\"dn_chnum\": 0,\n\t\t\t\"name\": \"XMLTV: EPG_$NOMBRE_LISTA\",\n\t\t\t\"type\": \"Internal\",\n\t\t\t\"enabled\": true,\n\t\t\t\"priority\": 4\n\t\t},#g" $TVHEADEND_CONFIG_DIR/epggrab/config
+			if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s%s%s\n" "[" "  OK  " "]"
+			else
+			printf "%s%s%s\n" "[" "FAILED" "]"
+			fi
+	# Copiamos archivos para grabber
+		printf "%-$(($COLUMNS-10))s"  " 3. Instalando grabber"
+			ERROR=false
+			cp -r $CARPETA_DOBLEM/tv_grab_EPG_$NOMBRE_LISTA $TVHEADEND_GRABBER_DIR/
 			if [ $? -ne 0 ]; then
 				ERROR=true
 			fi
@@ -229,8 +286,8 @@ INSTALAR_SAT()
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
-	# Comprobamos que existe el fichero /epggrab/config
-		printf "%-$(($COLUMNS-10))s"  " 4. Comprobando que existe el fichero /epggrab/config"
+	# Comprobamos si existe el fichero /epggrab/config
+		printf "%-$(($COLUMNS-10))s"  " 4. Comprobando si existe el fichero /epggrab/config"
 			if [ ! -f "$TVHEADEND_CONFIG_DIR/epggrab/config" ]; then
 				ERROR=false
 				mkdir $TVHEADEND_CONFIG_DIR/epggrab
@@ -738,8 +795,8 @@ INSTALAR_IPTV()
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
-	# Comprobamos que existe el fichero /epggrab/config
-		printf "%-$(($COLUMNS-10))s"  " 4. Comprobando que existe el fichero /epggrab/config"
+	# Comprobamos si existe el fichero /epggrab/config
+		printf "%-$(($COLUMNS-10))s"  " 4. Comprobando si existe el fichero /epggrab/config"
 			if [ ! -f "$TVHEADEND_CONFIG_DIR/epggrab/config" ]; then
 				ERROR=false
 				mkdir $TVHEADEND_CONFIG_DIR/epggrab
@@ -771,7 +828,7 @@ INSTALAR_IPTV()
 			sed -i 's#"uilevel":.*#"uilevel": 2,#' $TVHEADEND_CONFIG_DIR/config
 			if [ $? -ne 0 ]; then
 				ERROR=true
-			fi			
+			fi
 			#cron y grabber config epggrab
 			sed -i -e 's/"channel_rename": .*,/"channel_rename": false,/g' -e 's/"channel_renumber": .*,/"channel_renumber": false,/g' -e 's/"channel_reicon": .*,/"channel_reicon": false,/g' -e 's/"epgdb_periodicsave": .*,/"epgdb_periodicsave": 0,/g' -e 's/"epgdb_saveafterimport": .*,/"epgdb_saveafterimport": true,/g' -e 's/"cron": .*,/"cron": "\# Todos los días a las 8:04, 14:04 y 20:04\\n4 8 * * *\\n4 14 * * *\\n4 20 * * *",/g' -e 's/"int_initial": .*,/"int_initial": true,/g' -e 's/"ota_initial": .*,/"ota_initial": false,/g' -e 's/"ota_cron": .*,/"ota_cron": "\# Configuración modificada por dobleM\\n\# Telegram: t.me\/EPG_dobleM",/g' -e 's/"ota_timeout": .*,/"ota_timeout": 600,/g' $TVHEADEND_CONFIG_DIR/epggrab/config
 			if [ $? -ne 0 ]; then
@@ -902,7 +959,7 @@ else
 					printf "\n El grabber para $NOMBRE_LISTA se ha borrado o no existe"
 					printf "\n Procedo a descargarlo e instalarlo de nuevo \n"
 					REINICIO=1
-					INSTALAR_GRABBER
+					INSTALAR_GRABBER_SAT
 				else
 					printf "\n Versión  $NOMBRE_LISTA  instalada: $ver_local"
 					printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
@@ -939,12 +996,19 @@ else
 		INSTALAR_IPTV
 	else
 		if [ $ver_local = $ver_web ]; then
-			printf "\n Versión  $NOMBRE_LISTA  instalada: $ver_local"
-			printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
-			printf "\n No es necesario actualizar la lista \n"
+			if [ ! -f "$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA" ]; then
+				printf "\n El grabber para $NOMBRE_LISTA se ha borrado o no existe"
+				printf "\n Procedo a descargarlo e instalarlo de nuevo \n"
+				REINICIO=1
+				INSTALAR_GRABBER_IPTV
+			else
+				printf "\n Versión  $NOMBRE_LISTA  instalada: $ver_local"
+				printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
+				printf "\n No es necesario actualizar la lista \n"
+			fi
 		else
-		REINICIO=1
-		INSTALAR_IPTV
+			REINICIO=1
+			INSTALAR_IPTV
 		fi
 	fi
 fi
@@ -971,12 +1035,19 @@ else
 		INSTALAR_IPTV
 	else
 		if [ $ver_local = $ver_web ]; then
-			printf "\n Versión  $NOMBRE_LISTA  instalada: $ver_local"
-			printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
-			printf "\n No es necesario actualizar la lista \n"
+			if [ ! -f "$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA" ]; then
+				printf "\n El grabber para $NOMBRE_LISTA se ha borrado o no existe"
+				printf "\n Procedo a descargarlo e instalarlo de nuevo \n"
+				REINICIO=1
+				INSTALAR_GRABBER_IPTV
+			else
+				printf "\n Versión  $NOMBRE_LISTA  instalada: $ver_local"
+				printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
+				printf "\n No es necesario actualizar la lista \n"
+			fi
 		else
-		REINICIO=1
-		INSTALAR_IPTV
+			REINICIO=1
+			INSTALAR_IPTV
 		fi
 	fi
 fi
@@ -1003,12 +1074,19 @@ else
 		INSTALAR_IPTV
 	else
 		if [ $ver_local = $ver_web ]; then
-			printf "\n Versión  $NOMBRE_LISTA  instalada: $ver_local"
-			printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
-			printf "\n No es necesario actualizar la lista \n"
+			if [ ! -f "$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA" ]; then
+				printf "\n El grabber para $NOMBRE_LISTA se ha borrado o no existe"
+				printf "\n Procedo a descargarlo e instalarlo de nuevo \n"
+				REINICIO=1
+				INSTALAR_GRABBER_IPTV
+			else
+				printf "\n Versión  $NOMBRE_LISTA  instalada: $ver_local"
+				printf "\n Versión $NOMBRE_LISTA en servidor: $ver_web"
+				printf "\n No es necesario actualizar la lista \n"
+			fi
 		else
-		REINICIO=1
-		INSTALAR_IPTV
+			REINICIO=1
+			INSTALAR_IPTV
 		fi
 	fi
 fi
