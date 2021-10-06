@@ -12,9 +12,11 @@ Nuevo script para docker, funciones especiales respecto al anterior script:
 
 Todo se hace desde el propio contenedor, por lo que funciona independientemente del sistema anfitrión que se use
 
-Ahora las listas de canales se actualizan solas cada vez que detectan que hay una versión nueva
+Ahora las listas de canales se actualizan solas cada vez que se detecta que hay una versión nueva
 
 Solución al problema del borrado del grabber cuando se actualiza la imagen del contenedor 
+
+El script se auto actualiza si detecta que hay una versión más reciente 
 ***
 Versión del script: 20   (06/10/21)
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini">dobleMconfig.ini</a>
