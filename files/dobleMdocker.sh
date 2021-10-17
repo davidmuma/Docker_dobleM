@@ -18,7 +18,7 @@ if [ -z "$COLUMNS" ]; then
 	COLUMNS=80
 fi
 
-if [ $LOCAL_SCRIPT_VERSION -lt $REMOTE_SCRIPT_VERSION ]; then
+if [[ $LOCAL_SCRIPT_VERSION < $REMOTE_SCRIPT_VERSION ]]; then
 	cd $CARPETA_SCRIPT
 	curl -skO https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMdocker.sh
 	sh dobleMdocker.sh && exit
