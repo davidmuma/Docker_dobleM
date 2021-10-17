@@ -988,6 +988,13 @@ else
 			ACTUALIZAR_SAT
 		else
 			if [ $ver_local = $ver_web ]; then
+			
+			
+			
+			rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA
+			
+			
+			
 				if [ ! -f "$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA" ]; then
 					printf "\n El grabber para $NOMBRE_LISTA se ha borrado o no existe"
 					printf "\n Procedo a descargarlo e instalarlo de nuevo \n"
