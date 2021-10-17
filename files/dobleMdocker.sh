@@ -967,7 +967,7 @@ if [ $LISTA_SAT -eq 0 ]; then
 	NOMBRE_LISTA=dobleM-SAT
 	NOMBRE_INPUT="input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8"
 	if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
-		printf "\n Saltando instalación de lista $NOMBRE_LISTA \n"
+		printf "\n Omitiendo instalación de lista $NOMBRE_LISTA \n"
 	else
 		REINICIO=1
 		ELIMINAR_LISTA
@@ -1018,7 +1018,7 @@ if [ $LISTA_TDT -eq 0 ]; then
 	NOMBRE_LISTA=dobleM-TDT
 	NOMBRE_INPUT="input/iptv/networks/c80013f7cb7dc75ed04b0312fa362ae1"
 	if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
-		printf "\n Saltando instalación de lista $NOMBRE_LISTA \n"
+		printf "\n Omitiendo instalación de lista $NOMBRE_LISTA \n"
 	else
 		REINICIO=1
 		ELIMINAR_LISTA
@@ -1057,7 +1057,7 @@ if [ $LISTA_PLUTO -eq 0 ]; then
 	NOMBRE_LISTA=dobleM-PlutoTV_ALL
 	NOMBRE_INPUT="input/iptv/networks/d80013f7cb7dc75ed04b0312fa362ae1"
 	if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
-		printf "\n Saltando instalación de lista $NOMBRE_LISTA \n"
+		printf "\n Omitiendo instalación de lista $NOMBRE_LISTA \n"
 	else
 		REINICIO=1
 		ELIMINAR_LISTA
@@ -1096,7 +1096,7 @@ if [ $LISTA_PLUTOVOD -eq 0 ]; then
 	NOMBRE_LISTA=dobleM-PlutoVOD_ES
 	NOMBRE_INPUT="input/iptv/networks/f801b3c9e6be4260665d32be03908e00"
 	if [ ! -f "$TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver" ]; then
-		printf "\n Saltando instalación de lista $NOMBRE_LISTA \n"
+		printf "\n Omitiendo instalación de lista $NOMBRE_LISTA \n"
 	else
 		REINICIO=1
 		ELIMINAR_LISTA
