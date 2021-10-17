@@ -1,6 +1,6 @@
 #!/bin/bash
 # - script creado por dobleM
-LOCAL_SCRIPT_VERSION="20"
+LOCAL_SCRIPT_VERSION="21"
 REMOTE_SCRIPT_VERSION="$(curl https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/version.txt)"
 
 SCRIPT=$(readlink -f $0)
@@ -569,8 +569,34 @@ ACTUALIZAR_SAT()
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
+	# Comprobamos si existe el fichero /epggrab/config
+		printf "%-$(($COLUMNS-10))s"  " 4. Comprobando si existe el fichero /epggrab/config"
+			if [ ! -f "$TVHEADEND_CONFIG_DIR/epggrab/config" ]; then
+				ERROR=false
+				mkdir $TVHEADEND_CONFIG_DIR/epggrab
+				if [ $? -ne 0 ]; then
+					ERROR=true
+				fi
+				cp -f $CARPETA_DOBLEM/epggrab/config $TVHEADEND_CONFIG_DIR/epggrab/
+				if [ $? -ne 0 ]; then
+					ERROR=true
+				fi
+				rm -f $CARPETA_DOBLEM/epggrab/config
+				if [ $? -eq 0 -a $ERROR = "false" ]; then
+					printf "%s%s%s\n" "[" "  OK  " "]"
+				else
+					printf "%s%s%s\n" "[" "FAILED" "]"
+				fi
+			else
+				rm -f $CARPETA_DOBLEM/epggrab/config
+				if [ $? -eq 0 ]; then
+					printf "%s%s%s\n" "[" "  OK  " "]"
+				else
+					printf "%s%s%s\n" "[" "FAILED" "]"
+				fi
+			fi
 	# Configuramos tvheadend y grabber para satelite
-		printf "%-$(($COLUMNS-10))s"  " 4. Configurando tvheadend"
+		printf "%-$(($COLUMNS-10))s"  " 5. Configurando tvheadend"
 			ERROR=false
 			#Modo experto
 			sed -i 's#"uilevel":.*#"uilevel": 2,#' $TVHEADEND_CONFIG_DIR/config
@@ -627,7 +653,7 @@ ACTUALIZAR_SAT()
 			printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
 	# Borramos configuración actual
-		printf "%-$(($COLUMNS-10+1))s"  " 5. Preparando canales que serán actualizados"
+		printf "%-$(($COLUMNS-10+1))s"  " 6. Preparando canales que serán actualizados"
 		# Mantenemos canales deshabilitados por el usuario
 			for channelenabled in $(ls $TVHEADEND_CONFIG_DIR/channel/config);
 			do
@@ -669,7 +695,7 @@ ACTUALIZAR_SAT()
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
 	# Copiamos archivos para canales
-		printf "%-$(($COLUMNS-10+1))s"  " 6. Instalando canales satélite actualizados"
+		printf "%-$(($COLUMNS-10+1))s"  " 7. Instalando canales satélite actualizados"
 			ERROR=false
 			cp -r $CARPETA_DOBLEM/bouquet/ $TVHEADEND_CONFIG_DIR
 			if [ $? -ne 0 ]; then
@@ -694,7 +720,7 @@ ACTUALIZAR_SAT()
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
 	# Copiamos archivos para grabber
-		printf "%-$(($COLUMNS-10+1))s"  " 7. Instalando grabber para satélite"
+		printf "%-$(($COLUMNS-10+1))s"  " 8. Instalando grabber para satélite"
 			ERROR=false
 			cp -r $CARPETA_DOBLEM/epggrab/ $TVHEADEND_CONFIG_DIR/
 			if [ $? -ne 0 ]; then
@@ -715,7 +741,7 @@ ACTUALIZAR_SAT()
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
 	# Borramos carpeta termporal dobleM
-		printf "%-$(($COLUMNS-10))s"  " 8. Eliminando archivos temporales"
+		printf "%-$(($COLUMNS-10))s"  " 9. Eliminando archivos temporales"
 			rm -rf $CARPETA_DOBLEM
 			if [ $? -eq 0 ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
