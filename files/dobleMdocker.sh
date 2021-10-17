@@ -1,7 +1,7 @@
 #!/bin/bash
 # - script creado por dobleM
-LOCAL_SCRIPT_VERSION="21"
-REMOTE_SCRIPT_VERSION="$(curl https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/version.txt)"
+LOCAL_SCRIPT_VERSION=21
+REMOTE_SCRIPT_VERSION=`curl https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/version.txt 2>/dev/null`
 
 SCRIPT=$(readlink -f $0)
 CARPETA_SCRIPT=`dirname $SCRIPT`
@@ -18,7 +18,7 @@ if [ -z "$COLUMNS" ]; then
 	COLUMNS=80
 fi
 
-if [[ $REMOTE_SCRIPT_VERSION > $LOCAL_SCRIPT_VERSION ]]; then
+if [ $LOCAL_SCRIPT_VERSION -lt $REMOTE_SCRIPT_VERSION ]; then
 	cd $CARPETA_SCRIPT
 	curl -skO https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMdocker.sh
 	sh dobleMdocker.sh && exit
