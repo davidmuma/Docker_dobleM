@@ -1,6 +1,6 @@
 #!/bin/bash
 # - script creado por dobleM
-LOCAL_SCRIPT_VERSION=22
+LOCAL_SCRIPT_VERSION=23
 REMOTE_SCRIPT_VERSION=`curl https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/version.txt 2>/dev/null`
 
 SCRIPT=$(readlink -f $0)
@@ -988,13 +988,6 @@ else
 			ACTUALIZAR_SAT
 		else
 			if [ $ver_local = $ver_web ]; then
-			
-			
-			
-			rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA
-			
-			
-			
 				if [ ! -f "$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA" ]; then
 					printf "\n El grabber para $NOMBRE_LISTA se ha borrado o no existe"
 					printf "\n Procedo a descargarlo e instalarlo de nuevo \n"
