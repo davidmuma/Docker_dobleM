@@ -2,7 +2,7 @@
 # - script creado por dobleM
 sleep 5
 
-LOCAL_SCRIPT_VERSION=24
+LOCAL_SCRIPT_VERSION=25
 REMOTE_SCRIPT_VERSION=`curl https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/version.txt 2>/dev/null`
 
 SCRIPT=$(readlink -f $0)
@@ -297,13 +297,17 @@ INSTALAR_SAT()
 			fi
 	# Comprobamos si existe el fichero /epggrab/config
 		printf "%-$(($COLUMNS-10))s"  " 4. Comprobando si existe el fichero /epggrab/config"
-			if [ ! -f "$TVHEADEND_CONFIG_DIR/epggrab/config" ]; then
+			if [[ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]]; then
 				ERROR=false
 				mkdir $TVHEADEND_CONFIG_DIR/epggrab
 				if [ $? -ne 0 ]; then
 					ERROR=true
 				fi
 				cp -f $CARPETA_DOBLEM/epggrab/config $TVHEADEND_CONFIG_DIR/epggrab/
+				if [ $? -ne 0 ]; then
+					ERROR=true
+				fi
+				chown -R abc:abc $TVHEADEND_CONFIG_DIR/epggrab
 				if [ $? -ne 0 ]; then
 					ERROR=true
 				fi
@@ -433,7 +437,23 @@ INSTALAR_SAT()
 			if [ $? -ne 0 ]; then
 				ERROR=true
 			fi
-			cp -r $CARPETA_DOBLEM/$NOMBRE_LISTA.ver $TVHEADEND_CONFIG_DIR
+			chown -R abc:abc $TVHEADEND_CONFIG_DIR/bouquet
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			chown -R abc:abc $TVHEADEND_CONFIG_DIR/channel
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			chown -R abc:abc $TVHEADEND_CONFIG_DIR/input
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			chown -R abc:abc $TVHEADEND_CONFIG_DIR/picons
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			cp -r $CARPETA_DOBLEM/$FICHERO_LISTA.ver $TVHEADEND_CONFIG_DIR
 			if [ $? -eq 0 -a $ERROR = "false" ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
 			else
@@ -573,13 +593,17 @@ ACTUALIZAR_SAT()
 			fi
 	# Comprobamos si existe el fichero /epggrab/config
 		printf "%-$(($COLUMNS-10))s"  " 4. Comprobando si existe el fichero /epggrab/config"
-			if [ ! -f "$TVHEADEND_CONFIG_DIR/epggrab/config" ]; then
+			if [[ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]]; then
 				ERROR=false
 				mkdir $TVHEADEND_CONFIG_DIR/epggrab
 				if [ $? -ne 0 ]; then
 					ERROR=true
 				fi
 				cp -f $CARPETA_DOBLEM/epggrab/config $TVHEADEND_CONFIG_DIR/epggrab/
+				if [ $? -ne 0 ]; then
+					ERROR=true
+				fi
+				chown -R abc:abc $TVHEADEND_CONFIG_DIR/epggrab
 				if [ $? -ne 0 ]; then
 					ERROR=true
 				fi
@@ -715,7 +739,23 @@ ACTUALIZAR_SAT()
 			if [ $? -ne 0 ]; then
 				ERROR=true
 			fi
-			cp -r $CARPETA_DOBLEM/$NOMBRE_LISTA.ver $TVHEADEND_CONFIG_DIR
+			chown -R abc:abc $TVHEADEND_CONFIG_DIR/bouquet
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			chown -R abc:abc $TVHEADEND_CONFIG_DIR/channel
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			chown -R abc:abc $TVHEADEND_CONFIG_DIR/input
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			chown -R abc:abc $TVHEADEND_CONFIG_DIR/picons
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			cp -r $CARPETA_DOBLEM/$FICHERO_LISTA.ver $TVHEADEND_CONFIG_DIR
 			if [ $? -eq 0 -a $ERROR = "false" ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
 			else
@@ -832,13 +872,17 @@ INSTALAR_IPTV()
 			fi
 	# Comprobamos si existe el fichero /epggrab/config
 		printf "%-$(($COLUMNS-10))s"  " 4. Comprobando si existe el fichero /epggrab/config"
-			if [ ! -f "$TVHEADEND_CONFIG_DIR/epggrab/config" ]; then
+			if [[ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]]; then
 				ERROR=false
 				mkdir $TVHEADEND_CONFIG_DIR/epggrab
 				if [ $? -ne 0 ]; then
 					ERROR=true
 				fi
 				cp -f $CARPETA_DOBLEM/epggrab/config $TVHEADEND_CONFIG_DIR/epggrab/
+				if [ $? -ne 0 ]; then
+					ERROR=true
+				fi
+				chown -R abc:abc $TVHEADEND_CONFIG_DIR/epggrab
 				if [ $? -ne 0 ]; then
 					ERROR=true
 				fi
