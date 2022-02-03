@@ -453,7 +453,7 @@ INSTALAR_SAT()
 			if [ $? -ne 0 ]; then
 				ERROR=true
 			fi
-			cp -r $CARPETA_DOBLEM/$FICHERO_LISTA.ver $TVHEADEND_CONFIG_DIR
+			cp -r $CARPETA_DOBLEM/$NOMBRE_LISTA.ver $TVHEADEND_CONFIG_DIR
 			if [ $? -eq 0 -a $ERROR = "false" ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
 			else
@@ -755,7 +755,7 @@ ACTUALIZAR_SAT()
 			if [ $? -ne 0 ]; then
 				ERROR=true
 			fi
-			cp -r $CARPETA_DOBLEM/$FICHERO_LISTA.ver $TVHEADEND_CONFIG_DIR
+			cp -r $CARPETA_DOBLEM/$NOMBRE_LISTA.ver $TVHEADEND_CONFIG_DIR
 			if [ $? -eq 0 -a $ERROR = "false" ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
 			else
