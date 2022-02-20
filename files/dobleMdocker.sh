@@ -2,7 +2,7 @@
 # - script creado por dobleM
 sleep 5
 
-LOCAL_SCRIPT_VERSION=25
+LOCAL_SCRIPT_VERSION=26
 REMOTE_SCRIPT_VERSION=`curl https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/version.txt 2>/dev/null`
 
 SCRIPT=$(readlink -f $0)
@@ -14,16 +14,26 @@ TVHEADEND_GRABBER_DIR="/usr/bin"
 FFMPEG_DIR="/usr/bin/ffmpeg"
 
 . $CARPETA_SCRIPT/dobleMconfig.ini
+
 cd "$CARPETA_SCRIPT"
 
 if [ -z "$COLUMNS" ]; then
 	COLUMNS=80
 fi
 
-if [[ $LOCAL_SCRIPT_VERSION < $REMOTE_SCRIPT_VERSION ]]; then
-	cd $CARPETA_SCRIPT
+SCRIPT_CHOWN=`stat -c %U dobleMdocker.sh 2>/dev/null`
+if [ "$SCRIPT_CHOWN" != "root" ]; then
+	echo "Propietario script: $SCRIPT_CHOWN"
+	echo "Dando persimos root a los archivos"
+	chown root:root dobleM* && sh dobleMdocker.sh && exit
+fi
+
+if [ "$LOCAL_SCRIPT_VERSION" < "$REMOTE_SCRIPT_VERSION" ]; then
+	echo "Instalada: $LOCAL_SCRIPT_VERSION"
+	echo "Servidor:  $REMOTE_SCRIPT_VERSION"
+	echo "Descargando nueva version del script"
 	curl -skO https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMdocker.sh
-	sh dobleMdocker.sh && exit
+	chown root:root dobleM* && sh dobleMdocker.sh && exit
 fi
 
 (
