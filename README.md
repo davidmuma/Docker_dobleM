@@ -27,7 +27,9 @@ Instalación:
 2. Modifica el fichero dobleMconfig.ini con tu configuración y guardalo
 3. Copia los tres ficheros al directorio /config/custom-cont-init.d del propio contenedor
 4. Reinicia el contenedor
-5. Configura tus adaptadores en tvheadend y asigna la Red DVB-S (este paso solo hay que realizarlo la primera vez)
+5. Configura tus adaptadores en tvheadend y asigna "Red DVB-S" (este paso solo hay que realizarlo la primera vez)
+***
+NOTA: Si al reiniciar el contenedor se crea un nuevo directorio custom-cont-init.d.XXXXXXXX, elimina el original y renombra el nuevo como custom-cont-init.d
 ***
 Tutorial contenedores docker en Synology:
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/tvdocker.md">tvheadend</a>
