@@ -29,7 +29,8 @@ Instalación:
 4. Reinicia el contenedor
 5. Configura tus adaptadores en tvheadend y asigna "Red DVB-S" (este paso solo hay que realizarlo la primera vez)
 ***
-NOTA: Si al reiniciar el contenedor se crea un nuevo directorio custom-cont-init.d.XXXXXXXX, elimina el original y renombra el nuevo como custom-cont-init.d
+NOTA:
+Si al reiniciar el contenedor se genera un nuevo directorio del tipo custom-cont-init.d.XXXXXXXX, elimina el original y renombra el generado como custom-cont-init.d
 ***
 Tutorial contenedores docker en Synology:
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/tvdocker.md">tvheadend</a>
