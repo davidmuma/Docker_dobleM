@@ -16,6 +16,8 @@ Ahora las listas de canales se actualizan solas cada vez que se detecta que hay 
 
 Solución al problema del borrado del grabber cuando se actualiza la imagen del contenedor 
 
+Novedad de la versión 33, nuevo fichero dobleMconfig.ini, con la posibilidad de añadir listas IPTV personales a tvheadend
+
 El script se auto actualiza si detecta que hay una versión más reciente 
 ***
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini">dobleMconfig.ini</a>
@@ -29,7 +31,7 @@ Instalación:
 4. Reinicia el contenedor
 5. Configura tus adaptadores en tvheadend y asigna "Red DVB-S" (este paso solo hay que realizarlo la primera vez)
 ***
-Script automatizado de instalación y actualización de Stremlink (gracias cgomesu), copiar en la carpeta /config/custom-cont-init.d:
+Script automatizado de instalación y actualización de Streamlink para las listas IPTV (gracias cgomesu), copiar en la carpeta /config/custom-cont-init.d:
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/streamlink_for_tvh_container.sh">streamlink_for_tvh_container.sh</a>
 ***
 NOTA:
