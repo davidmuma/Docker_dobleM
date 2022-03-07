@@ -16,9 +16,10 @@ Ahora las listas de canales se actualizan solas cada vez que se detecta que hay 
 
 Solución al problema del borrado del grabber cuando se actualiza la imagen del contenedor 
 
-Novedad de la versión 33, nuevo fichero dobleMconfig.ini, con la posibilidad de añadir listas IPTV personales a tvheadend
-
 El script se auto actualiza si detecta que hay una versión más reciente 
+
+#Novedad de la versión 33, nuevo fichero dobleMconfig.ini, con la posibilidad de añadir listas IPTV personales a tvheadend
+
 ***
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini">dobleMconfig.ini</a>
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMdocker.sh">dobleMdocker.sh</a>
