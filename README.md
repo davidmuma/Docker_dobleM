@@ -29,6 +29,9 @@ Instalación:
 4. Reinicia el contenedor
 5. Configura tus adaptadores en tvheadend y asigna "Red DVB-S" (este paso solo hay que realizarlo la primera vez)
 ***
+Script automatizado de instalación y actualización de Stremlink (gracias cgomesu), copiar en la carpeta /config/custom-cont-init.d:
+- <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/streamlink_for_tvh_container.sh">streamlink_for_tvh_container.sh</a>
+***
 NOTA:
 Si al reiniciar el contenedor se genera un nuevo directorio del tipo custom-cont-init.d.XXXXXXXX, elimina el original y renombra el generado como custom-cont-init.d
 ***
