@@ -36,7 +36,8 @@ Script automatizado de instalación y actualización de Streamlink (gracias cgom
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/streamlink_for_tvh_container.sh">streamlink_for_tvh_container.sh</a>
 ***
 NOTA:
-Si al reiniciar el contenedor se genera un nuevo directorio del tipo custom-cont-init.d.XXXXXXXX, elimina el original y renombra el generado como custom-cont-init.d
+Para que no se generen directorios del tipo custom-cont-init.d.XXXXXXXX y custom-services.d.XXXXXXXX, tanto el directorio custom-cont-init.d como el directorio
+custom-services.d y los archivos que contengan tienen que tener el propietario root
 ***
 Tutorial contenedores docker en Synology:
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/tvdocker.md">tvheadend</a>
