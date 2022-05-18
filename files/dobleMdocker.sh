@@ -2,7 +2,7 @@
 # - script creado por dobleM
 sleep 5
 
-LOCAL_SCRIPT_VERSION=33
+LOCAL_SCRIPT_VERSION=34
 REMOTE_SCRIPT_VERSION=`curl https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/version.txt 2>/dev/null`
 
 SCRIPT=$(readlink -f $0)
