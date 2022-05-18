@@ -21,7 +21,7 @@ if [ -z "$COLUMNS" ]; then
 	COLUMNS=80
 fi
 
-if [[ $LOCAL_SCRIPT_VERSION < $REMOTE_SCRIPT_VERSION ]]; then
+if [[ $REMOTE_SCRIPT_VERSION -lt $LOCAL_SCRIPT_VERSION ]]; then
 	echo "Instalada: $LOCAL_SCRIPT_VERSION"
 	echo "Servidor:  $REMOTE_SCRIPT_VERSION"
 	echo "Descargando nueva version del script"
