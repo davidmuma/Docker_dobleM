@@ -25,20 +25,22 @@ El script se auto actualiza si detecta que hay una versión más reciente
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMdocker.sh">dobleMdocker.sh</a>
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMcron.sh">dobleMcron.sh</a>
 ***
+NOTA:
+<a href="https://www.linuxserver.io/blog/2019-09-14-customizing-our-containers>Por cambio en imagen de linuxserver</a>
+linuxserver a cambiado la forma de usar scritps personales, ahora la carpeta custom-cont-init.d ya no está en /config y hay que mapearla como una carpeta normal
+Ejemplo: /home/tvheadend/scripts:/custom-services.d
+***
 Instalación:
 1. Descarga los tres ficheros
 2. Modifica el fichero dobleMconfig.ini con tu configuración y guardalo
-3. Copia los tres ficheros al directorio /config/custom-cont-init.d del propio contenedor
+3. Copia los tres ficheros a la carpeta mapeada (ejemplo: /home/tvheadend/scripts)
 4. Reinicia el contenedor
 5. Configura tus adaptadores en tvheadend y asigna "Red DVB-S" (este paso solo hay que realizarlo la primera vez)
 ***
 Script automatizado de instalación y actualización de Streamlink (gracias cgomesu) para poder usar las listas de TDTChannels y Pluto, copiar en la carpeta /config/custom-cont-init.d:
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/streamlink_for_tvh_container.sh">streamlink_for_tvh_container.sh</a>
 ***
-NOTA:
-Para que no se generen directorios del tipo custom-cont-init.d.XXXXXXXX y custom-services.d.XXXXXXXX, tanto el directorio custom-cont-init.d como el directorio
-custom-services.d y los archivos que contengan tienen que tener el propietario root
-***
+
 Tutorial contenedores docker en Synology:
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/tvdocker.md">tvheadend</a>
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/osdocker.md">oscam</a>
