@@ -21,16 +21,9 @@ if [ -z "$COLUMNS" ]; then
 	COLUMNS=80
 fi
 
-if [[ $REMOTE_SCRIPT_VERSION -lt $LOCAL_SCRIPT_VERSION ]]; then
-	echo "Instalada: $LOCAL_SCRIPT_VERSION"
-	echo "Servidor:  $REMOTE_SCRIPT_VERSION"
-	echo "Descargando nueva version del script"
-	curl -skO https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/dobleMdocker.sh
-	chown root:root dobleM* && sh dobleMdocker.sh && exit
-fi
-
 (
-printf " Versión del script: $LOCAL_SCRIPT_VERSION \n\n"
+printf " Versión script instalado: $LOCAL_SCRIPT_VERSION \n\n"
+printf " Versión script  servidor: $REMOTE_SCRIPT_VERSION \n\n"
 
 ELIMINAR_LISTA()
 {
