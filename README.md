@@ -32,7 +32,7 @@ a cambiado la forma de usar scritps personalizados, ahora la carpeta custom-cont
 ***
 Instalación:
 1. Descarga los tres ficheros
-2. Modifica el fichero dobleMconfig.ini con tu configuración (usar Notepad++ o similar)
+2. Modifica el fichero dobleMconfig.ini con tus preferencias (usar Notepad++ o similar)
 3. Copia los tres ficheros a la carpeta mapeada (ejemplo: /home/tvheadend/scripts)
 4. Reinicia el contenedor
 5. Configura tus adaptadores en tvheadend y asigna "Red DVB-S" (este paso solo hay que realizarlo la primera vez)
