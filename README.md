@@ -37,7 +37,7 @@ Instalación:
 4. Reinicia el contenedor
 5. Configura tus adaptadores en tvheadend y asigna "Red DVB-S" (este paso solo hay que realizarlo la primera vez)
 ***
-Script automatizado de instalación y actualización de Streamlink (gracias cgomesu) para poder usar las listas de TDTChannels y Pluto, copiar en la carpeta /config/custom-cont-init.d:
+Script automatizado de instalación y actualización de Streamlink (gracias cgomesu) para poder usar las listas de TDTChannels y Pluto, copiar en la carpeta mapeada (ejemplo: /home/tvheadend/scripts)
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/streamlink_for_tvh_container.sh">streamlink_for_tvh_container.sh</a>
 ***
 
