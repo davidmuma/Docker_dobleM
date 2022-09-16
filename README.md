@@ -28,7 +28,7 @@ El script se auto actualiza si detecta que hay una versión más reciente
 NOTA:
 <a href="https://www.linuxserver.io/blog/2019-09-14-customizing-our-containers">linuxserver</a>
 a cambiado la forma de usar scritps personalizados, ahora la carpeta custom-cont-init.d ya no está en /config y hay que mapearla como una carpeta normal
-- "ejemplo: /home/tvheadend/scripts:/custom-cont-init.d"
+- ejemplo:   /home/tvheadend/scripts:/custom-cont-init.d
 ***
 Instalación:
 1. Descarga los tres ficheros
