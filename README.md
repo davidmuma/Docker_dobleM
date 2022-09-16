@@ -16,8 +16,6 @@ Ahora las listas de canales se actualizan solas cada vez que se detecta que hay 
 
 Solución al problema del borrado del grabber cuando se actualiza la imagen del contenedor 
 
-El script se auto actualiza si detecta que hay una versión más reciente 
-
 ### Novedad de la versión 33, nuevo fichero dobleMconfig.ini, con la posibilidad de añadir listas IPTV personales a tvheadend ###
 
 ***
