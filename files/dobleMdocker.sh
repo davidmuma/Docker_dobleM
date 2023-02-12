@@ -2,7 +2,7 @@
 # - script creado por dobleM
 sleep 5
 
-LOCAL_SCRIPT_VERSION=34
+LOCAL_SCRIPT_VERSION=35
 REMOTE_SCRIPT_VERSION=`curl https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/files/version.txt 2>/dev/null`
 
 SCRIPT=$(readlink -f $0)
@@ -154,10 +154,8 @@ INSTALAR_SAT()
 		*) printf "\n $LISTA_SAT no es una opción válida para LISTA_SAT\n"; exit;;
 	esac
 	case $FORMATO_EPG in
-		1) FORMATO_IDIOMA_EPG='\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t';;
-		2) FORMATO_IDIOMA_EPG='\n\t\t"fre",\n\t\t"eng",\n\t\t"ger",\n\t\t"spa"\n\t';;
-		3) FORMATO_IDIOMA_EPG='\n\t\t"ger",\n\t\t"eng",\n\t\t"spa",\n\t\t"fre"\n\t';;
-		4) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa",\n\t\t"ger",\n\t\t"fre"\n\t';;
+		1) FORMATO_IDIOMA_EPG='\n\t\t"spa",\n\t\t"eng"\n\t';;
+		2) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa"\n\t';;
 		*) printf "\n $FORMATO_EPG no es una opción válida para FORMATO_EPG\n"; exit;;
 	esac
 	case $FORMATO_IMG in
@@ -167,10 +165,11 @@ INSTALAR_SAT()
 	esac
 	case $TIPO_PICON in
 		1) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons";;
-		2) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM";;
-		3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo";;
-		4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent";;
-		5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/color";;
+		2) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons";;
+		3) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons";;
+		4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/color/";;
+		5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/blanco/";;
+		6) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/reflejo/";;
 		*) printf "\n $TIPO_PICON no es una opción válida para TIPO_PICON\n"; exit;;
 	esac
 	# Iniciamos instalación
@@ -178,10 +177,21 @@ INSTALAR_SAT()
 	# Preparamos CARPETA_DOBLEM y descargamos el fichero dobleM?????.tar.xz
 		printf "%-$(($COLUMNS-10+1))s"  " 1. Descargando lista y grabber para canales satélite"
 			ERROR=false
-			rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && cd $CARPETA_DOBLEM
+			rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM/picons && cd $CARPETA_DOBLEM
 			if [ $? -ne 0 ]; then
 				ERROR=true
 			fi
+			if [[ $TIPO_PICON -le 3 ]]; then
+				case $TIPO_PICON in
+					1) FICHERO_PICON="color";;
+					2) FICHERO_PICON="blanco";;
+					3) FICHERO_PICON="reflejo";;
+				esac
+				curl -skO https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/$FICHERO_PICON.tar.xz
+				if [ $? -ne 0 ]; then
+					ERROR=true
+				fi
+			fi		
 			curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$FICHERO_LISTA.ver
 			if [ $? -ne 0 ]; then
 				ERROR=true
@@ -199,6 +209,12 @@ INSTALAR_SAT()
 	# Descomprimimos el tar, borramos canales no elegidos y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
 		printf "%-$(($COLUMNS-10+1))s"  " 2. Preparando lista de canales satélite"
 			ERROR=false
+			if [[ $TIPO_PICON -le 3 ]]; then
+				tar -xf "$FICHERO_PICON.tar.xz" -C $CARPETA_DOBLEM/picons
+				if [ $? -ne 0 ]; then
+					ERROR=true
+				fi
+			fi
 			tar -xf "$FICHERO_LISTA.tar.xz"
 			if [ $? -ne 0 ]; then
 				ERROR=true
@@ -460,10 +476,11 @@ ACTUALIZAR_SAT()
 	esac
 	case $TIPO_PICON in
 		1) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons";;
-		2) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM";;
-		3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo";;
-		4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent";;
-		5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/color";;
+		2) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons";;
+		3) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons";;
+		4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/color/";;
+		5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/blanco/";;
+		6) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/reflejo/";;
 		*) printf "\n $TIPO_PICON no es una opción válida para TIPO_PICON\n"; exit;;
 	esac
 	# Iniciamos instalación
@@ -471,9 +488,20 @@ ACTUALIZAR_SAT()
 	# Preparamos CARPETA_DOBLEM y descargamos el fichero dobleM?????.tar.xz
 		printf "%-$(($COLUMNS-10+1))s"  " 1. Descargando lista y grabber para canales satélite"
 			ERROR=false
-			rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && cd $CARPETA_DOBLEM
+			rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM/picons && cd $CARPETA_DOBLEM
 			if [ $? -ne 0 ]; then
 				ERROR=true
+			fi
+			if [[ $TIPO_PICON -le 3 ]]; then
+				case $TIPO_PICON in
+					1) FICHERO_PICON="color";;
+					2) FICHERO_PICON="blanco";;
+					3) FICHERO_PICON="reflejo";;
+				esac
+				curl -skO https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/$FICHERO_PICON.tar.xz
+				if [ $? -ne 0 ]; then
+					ERROR=true
+				fi
 			fi
 			curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$FICHERO_LISTA.ver
 			if [ $? -ne 0 ]; then
@@ -492,6 +520,12 @@ ACTUALIZAR_SAT()
 	# Descomprimimos el tar, borramos canales no elegidos y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
 		printf "%-$(($COLUMNS-10+1))s"  " 2. Preparando lista de canales satélite"
 			ERROR=false
+			if [[ $TIPO_PICON -le 3 ]]; then
+				tar -xf "$FICHERO_PICON.tar.xz" -C $CARPETA_DOBLEM/picons
+				if [ $? -ne 0 ]; then
+					ERROR=true
+				fi
+			fi
 			tar -xf "$FICHERO_LISTA.tar.xz"
 			if [ $? -ne 0 ]; then
 				ERROR=true
@@ -1314,4 +1348,4 @@ else
 	printf "\n No hay cambios \n\n"
 fi
 
-) | tee "$CARPETA_SCRIPT/dobleMscript.log"
+) | tee "$TVHEADEND_CONFIG_DIR/dobleMscript.log"
