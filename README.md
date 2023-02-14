@@ -25,7 +25,6 @@ Descarga los tres ficheros:
 
 <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMcron.sh">dobleMcron.sh</a>
 
-***
 NOTA:
 <a href="https://www.linuxserver.io/blog/2019-09-14-customizing-our-containers">linuxserver</a>
 a cambiado la forma de usar scritps personalizados, ahora la carpeta custom-cont-init.d ya no está en /config y hay que mapearla como una carpeta normal
