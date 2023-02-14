@@ -18,7 +18,7 @@ Nuevo script para docker, funciones especiales respecto al anterior script:
 
 ***
 Instalación:
-1. Descarga los tres ficheros
+1> Descarga los tres ficheros
 
     <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini">dobleMconfig.ini</a>
 
@@ -26,15 +26,15 @@ Instalación:
 
     <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMcron.sh">dobleMcron.sh</a>
 
-3. Modifica el fichero dobleMconfig.ini con tus preferencias (usar Notepad++ o similar)
-4. Copia los tres ficheros a la carpeta mapeada (ejemplo: /home/tvheadend/scripts)
+3> Modifica el fichero dobleMconfig.ini con tus preferencias (usar Notepad++ o similar)
+4> Copia los tres ficheros a la carpeta mapeada (ejemplo: /home/tvheadend/scripts)
 
   NOTA:
   <a href="https://www.linuxserver.io/blog/2019-09-14-customizing-our-containers">linuxserver</a>
   a cambiado la forma de usar scritps personalizados, ahora la carpeta custom-cont-init.d ya no está en /config y hay que mapearla como una carpeta normal (ejemplo: /home/tvheadend/scripts:/custom-cont-init.d)
   
-6. Reinicia el contenedor
-7. Configura tus adaptadores en tvheadend y asigna "Red DVB-S" (este paso solo hay que realizarlo la primera vez)
+6> Reinicia el contenedor
+7> Configura tus adaptadores en tvheadend y asigna "Red DVB-S" (este paso solo hay que realizarlo la primera vez)
 ***
 Script automatizado de instalación y actualización de Streamlink (gracias cgomesu) para poder usar las listas de Pluto (o listas que lo requieran), copiar en la carpeta mapeada (ejemplo: /home/tvheadend/scripts)
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/streamlink_for_tvh_container.sh">streamlink_for_tvh_container.sh</a>
