@@ -10,14 +10,11 @@
 
 Nuevo script para docker, funciones especiales respecto al anterior script:
 
-Todo se hace desde el propio contenedor, por lo que funciona independientemente del sistema anfitrión que se use
-
-Ahora las listas de canales se actualizan solas cada vez que se detecta que hay una versión nueva
-
-Solución al problema del borrado del grabber cuando se actualiza la imagen del contenedor 
-
-### Novedad de la versión 33: nuevo fichero dobleMconfig.ini, con la posibilidad de añadir listas IPTV personales a tvheadend ###
-### Novedad de la versión 35: modificado el script para poder usar los nuevos picons ###
+- Todo se hace desde el propio contenedor, por lo que funciona independientemente del sistema anfitrión que se use
+- Ahora las listas de canales se actualizan solas cada vez que se detecta que hay una versión nueva
+- Solución al problema del borrado del grabber cuando se actualiza la imagen del contenedor
+- Novedad de la versión 33: nuevo fichero dobleMconfig.ini, con la posibilidad de añadir listas IPTV personales a tvheadend
+- Novedad de la versión 35: modificado el script y el dobleMconfig.ini para poder usar los nuevos picons
 
 ***
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMconfig.ini">dobleMconfig.ini</a>
