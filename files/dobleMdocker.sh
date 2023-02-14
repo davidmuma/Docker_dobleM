@@ -25,6 +25,8 @@ fi
 printf " Versión script instalado: $LOCAL_SCRIPT_VERSION \n\n"
 printf " Versión script  servidor: $REMOTE_SCRIPT_VERSION \n\n"
 
+rm $CARPETA_SCRIPT/dobleMscript.log
+
 ELIMINAR_LISTA()
 {
 	# Iniciamos borrado
