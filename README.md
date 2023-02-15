@@ -50,5 +50,4 @@ Tutorial contenedores docker en Synology:
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/ostv.md">vincular oscam + tvheadend</a>
 - <a href="https://github.com/davidmuma/Docker_dobleM/blob/main/Varios/andocker.md">antennas</a>
 #
-<a href="https://www.paypal.me/EPGdobleM"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;" ></a>  
-Si te gusta mi trabajo puedes invitarme a un café :smile:
+<a href="https://www.paypal.me/EPGdobleM"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;" ></a> Si te gusta mi trabajo puedes invitarme a un café :smile:
