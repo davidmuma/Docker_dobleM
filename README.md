@@ -31,7 +31,7 @@ Instalación:
 
 3- Copia los tres ficheros a la carpeta mapeada (ejemplo: /home/tvheadend/scripts)
 
--NOTA:
+ NOTA:
 <a href="https://www.linuxserver.io/blog/2019-09-14-customizing-our-containers">linuxserver</a>
 ha cambiado la forma de usar scritps personalizados, ahora la carpeta custom-cont-init.d ya no está en /config y hay que mapearla como una carpeta normal (ejemplo: /home/tvheadend/scripts:/custom-cont-init.d)
   
