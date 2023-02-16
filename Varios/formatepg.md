@@ -1,4 +1,4 @@
-El script incluye varios formatos de guía de programación y picon, pudiendo elegir:
+El script configura distintos formatos de guía de programación y picon, pudiendo elegir:
 - el formato de la guía:
 
   | Con etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg) | Sin etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolor.jpg) |
