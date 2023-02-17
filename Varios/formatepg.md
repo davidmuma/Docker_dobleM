@@ -5,7 +5,7 @@ El script permite seleccionar la lista a instalar en función de nuestra instala
 - Astra individual
 - Astra comunitaria
 
-Y configura distintos formatos de guía de programación y picon, pudiendo elegir:
+Y configurar los distintos formatos de guía de programación y picon, pudiendo elegir:
 - el formato de la guía:
 
   | Con etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg) | Sin etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolor.jpg) |
