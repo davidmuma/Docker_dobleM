@@ -27,7 +27,7 @@ Instalación:
 
 - <a href="https://kinolien.github.io/gitzip/?download=https://github.com/davidmuma/Docker_dobleM/blob/main/files/dobleMcron.sh">dobleMcron.sh</a>
 
-2- Modifica el fichero dobleMconfig.ini con tus preferencias (usar Notepad++ o similar) | [ opciones EPG ](https://github.com/davidmuma/Docker_dobleM/blob/master/Varios/formatepg.md) 
+2- Modifica el fichero dobleMconfig.ini con tus preferencias (usar Notepad++ o similar) | [ opciones fichero .ini ](https://github.com/davidmuma/Docker_dobleM/blob/master/Varios/formatepg.md) 
 
 3- Copia los tres ficheros a la carpeta mapeada (ejemplo: /home/tvheadend/scripts)
 
