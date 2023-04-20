@@ -15,6 +15,7 @@ Nuevo script para docker, funciones especiales respecto al anterior script:
 - Se soluciona el problema del borrado del grabber cuando se actualiza la imagen del contenedor
 - Novedad versión 33: nuevo fichero dobleMconfig.ini, con la posibilidad de añadir listas IPTV personales a tvheadend
 - Novedad versión 35: modificado el script y el dobleMconfig.ini para poder usar los nuevos picons
+- Novedad versión 36: modificada las horas de descarga de la EPG
 
 ***
 Instalación:
