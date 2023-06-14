@@ -17,7 +17,7 @@ lb_max_ecmcount               = 250
 lb_reopen_seconds             = 900
 lb_retrylimit                 = 800
 lb_max_readers                = 10
-disablecrccws_only_for        = 1810:000000
+disablecrccws                 = 1
 
 [cache]
 max_time                      = 8
