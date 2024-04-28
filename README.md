@@ -8,7 +8,7 @@
   Grupo de telegram: <a href="https://t.me/EPG_dobleM">dobleM</a>
 </h2>
 
-Nuevo script para docker, funciones especiales respecto al anterior script:
+Nuevo script para tvheadend en docker, funciones especiales respecto al anterior script:
 
 - Todo se hace desde el propio contenedor, por lo que funciona independientemente del sistema anfitrión
 - Ahora las listas de canales se actualizan automáticamente cuando el script detecta una nueva versión
